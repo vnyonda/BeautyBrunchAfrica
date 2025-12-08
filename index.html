@@ -568,20 +568,24 @@
 
     <!-- Load images dynamically -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Event photos
-        const eventPhotos = [
-            '_OP_9461.JPG',
-            'DSC09674.JPG',
-            '_OP_9485.JPG',
-            '_OP_9453.JPG',
-            'DSC09465.JPG',
-            '_OP_9456.JPG',
-            'DSC09473.JPG',
-            '_OP_9430.JPG',
-            'BB_Affiche_Final___.jpeg',
-            'Beauty_Brunch_2021.jpg',
-            'Beauty_Brunch_2022.jpg'
-        ];
+        // Event photos - CORRECTED filenames matching your GitHub repo
+const eventPhotos = [
+    '_OP_9461.JPG',
+    'DSC09674.JPG',
+    '_OP_9485.JPG',
+    '_OP_9453.JPG',
+    'DSC09465.JPG',
+    '_OP_9456.JPG',
+    'DSC09473.JPG',
+    '_OP_9430.JPG',
+    '_OP_9485.JPG',
+    'BB_Affiche_Final___.jpeg',
+    'BB_Logo.png',
+    'Beauty_Brunch_2021.jpg',
+    'Beauty_Brunch_2022.jpg',
+    'DSC09641.JPG',
+    'DSC09771.JPG'
+];
 
         const galleryGrid = document.querySelector('.gallery-grid');
         galleryGrid.innerHTML = '';
@@ -591,6 +595,11 @@
             item.className = 'gallery-item';
             item.style.animationDelay = `${0.1 * index}s`;
             
-            item.innerHTML = `
-                <img src="${photo}" alt="Beauty Brunch Event ${index + 1}" loading="lazy">
-                <di
+            tem.innerHTML = `
+    <img src="${photo}" alt="Beauty Brunch Event ${index + 1}" loading="lazy" onerror="console.error('Failed to load: ${photo}')">
+    <div class="gallery-overlay">
+        <span class="overlay-text">Beauty Brunch Experience</span>
+    </div>
+`;
+
+galleryGrid.appendChild(item);
