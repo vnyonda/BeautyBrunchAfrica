@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Brunch Africa - Créateurs d'Expériences Autour de la Femme</title>
+    <meta name="description" content="Beauty Brunch Africa - Créateurs d'Expériences Autour de la Femme. Libreville, Gabon.">
+    
+    <!-- Fonts - Using exact Beauty Brunch brand fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Montserrat:wght@900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bb-pink: #FF1D8D;
+            --bb-white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+            background: #FFFFFF;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #fce7f3 50%, #ffe4e6 100%);
+            overflow: hidden;
+        }
+
+        /* Animated background blobs */
+        .blob-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+
+        .blob1 {
+            top: 5rem;
+            left: 2.5rem;
+            width: 20rem;
+            height: 20rem;
+            background: var(--bb-pink);
+            animation: blob 8s infinite;
+        }
+
+        .blob2 {
+            top: 10rem;
+            right: 2.5rem;
+            width: 18rem;
+            height: 18rem;
+            background: #fda4af;
+            animation: blob 8s infinite;
+            animation-delay: 2s;
+        }
+
+        .blob3 {
+            bottom: -2rem;
+            left: 50%;
+            width: 18rem;
+            height: 18rem;
+            background: #fbcfe8;
+            animation: blob 8s infinite;
+            animation-delay: 4s;
+        }
+
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        /* Logo Section */
+        .logo-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .logo-text-beauty {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--bb-pink);
+            margin: 0;
+        }
+
+        .logo-text-brunch {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--bb-pink);
+            margin: 0;
+        }
+
+        .tagline {
+            position: relative;
+            z-index: 10;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #374151;
+            letter-spacing: 0.05em;
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1400px;
+            padding: 4rem 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 29, 141, 0.15);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 29, 141, 0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(255, 29, 141, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        /* Social Section */
+        .social-section {
+            position: relative;
+            z-index: 10;
+            max-width: 28rem;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.7s forwards;
+        }
+
+        .social-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-link {
+            position: relative;
+            display: block;
+            padding: 1.5rem;
+            background: white;
+            border: 2px solid #f3f4f6;
+            border-radius: 1rem;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            border-color: var(--bb-pink);
+        }
+
+        .social-link-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .social-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover .social-icon {
+            transform: rotate(12deg) scale(1.1);
+        }
+
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .social-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .arrow {
+            width: 1.5rem;
+            height: 1.5rem;
+            stroke: #9ca3af;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover .arrow {
+            transform: translateX(8px);
+            stroke: var(--bb-pink);
+        }
+
+        /* Icon backgrounds */
+        .bg-tiktok {
+            background: linear-gradient(135deg, #00f2ea, #ff0050);
+        }
+
+        .bg-instagram {
+            background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45);
+        }
+
+        .bg-facebook {
+            background: linear-gradient(135deg, #0866FF, #1877F2);
+        }
+
+        .bg-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        /* Gradient overlays */
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover .gradient-overlay {
+            opacity: 0.1;
+        }
+
+        .gradient-tiktok {
+            background: linear-gradient(135deg, #00f2ea, #ff0050);
+        }
+
+        .gradient-instagram {
+            background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45);
+        }
+
+        .gradient-facebook {
+            background: linear-gradient(135deg, #0866FF, #1877F2);
+        }
+
+        .gradient-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .shine {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, white, transparent);
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 0.7s ease;
+        }
+
+        .social-link:hover .shine {
+            opacity: 0.3;
+            transform: translateX(100%);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 10;
+            margin-top: 4rem;
+            padding: 2rem 1rem 3rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+        }
+
+        .footer p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer .email {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .logo-text-beauty,
+            .logo-text-brunch {
+                font-size: 7rem;
+            }
+
+            .tagline {
+                font-size: 2rem;
+            }
+
+            .social-title {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .logo-text-beauty,
+            .logo-text-brunch {
+                font-size: 8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Animated background -->
+        <div class="blob-container">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="blob blob3"></div>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo-container">
+            <h1 class="logo-text-beauty">Beauty</h1>
+            <h1 class="logo-text-brunch">Brunch</h1>
+        </div>
+
+        <!-- Tagline -->
+        <p class="tagline">Créateurs d'Expériences Autour de la Femme</p>
+
+        <!-- Gallery Section -->
+        <div class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Beauty Brunch Event">
+                    <div class="gallery-overlay">
+                        <span class="overlay-text">Beauty Brunch Experience</span>
+                    </div>
+                </div>
+                <!-- More gallery items will be added dynamically -->
+            </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-section">
+            <h2 class="social-title">Rejoignez notre communauté</h2>
+            
+            <div class="social-links">
+                <!-- TikTok -->
+                <a href="https://vm.tiktok.com/ZMD1cD6sw/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <div class="gradient-overlay gradient-tiktok"></div>
+                    <div class="shine"></div>
+                    <div class="social-link-content">
+                        <div class="social-left">
+                            <div class="social-icon bg-tiktok">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M9 8h10v10H9z"/>
+                                    <polyline points="9 12 9 8 13 8"/>
+                                </svg>
+                            </div>
+                            <span class="social-name">TikTok</span>
+                        </div>
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <polyline points="9 5 16 12 9 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/beautybrunchafrica" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <div class="gradient-overlay gradient-instagram"></div>
+                    <div class="shine"></div>
+                    <div class="social-link-content">
+                        <div class="social-left">
+                            <div class="social-icon bg-instagram">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </div>
+                            <span class="social-name">Instagram</span>
+                        </div>
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <polyline points="9 5 16 12 9 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/share/1BHkvR4J9U/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <div class="gradient-overlay gradient-facebook"></div>
+                    <div class="shine"></div>
+                    <div class="social-link-content">
+                        <div class="social-left">
+                            <div class="social-icon bg-facebook">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </div>
+                            <span class="social-name">Facebook</span>
+                        </div>
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <polyline points="9 5 16 12 9 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://whatsapp.com/channel/0029VbBWAhQFMqrgEau3982m" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <div class="gradient-overlay gradient-whatsapp"></div>
+                    <div class="shine"></div>
+                    <div class="social-link-content">
+                        <div class="social-left">
+                            <div class="social-icon bg-whatsapp">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                            </div>
+                            <span class="social-name">WhatsApp</span>
+                        </div>
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <polyline points="9 5 16 12 9 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Beauty Brunch Africa</p>
+        </div>
+    </section>
+
+    <!-- Load images dynamically -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Event photos
+        const eventPhotos = [
+            '_OP_9461.JPG',
+            'DSC09674.JPG',
+            '_OP_9485.JPG',
+            '_OP_9453.JPG',
+            'DSC09465.JPG',
+            '_OP_9456.JPG',
+            'DSC09473.JPG',
+            '_OP_9430.JPG',
+            'BB_Affiche_Final___.jpeg',
+            'Beauty_Brunch_2021.jpg',
+            'Beauty_Brunch_2022.jpg'
+        ];
+
+        const galleryGrid = document.querySelector('.gallery-grid');
+        galleryGrid.innerHTML = '';
+
+        eventPhotos.forEach((photo, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.style.animationDelay = `${0.1 * index}s`;
+            
+            item.innerHTML = `
+                <img src="${photo}" alt="Beauty Brunch Event ${index + 1}" loading="lazy">
+                <di
