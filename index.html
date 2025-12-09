@@ -6,7 +6,7 @@
     <title>Beauty Brunch Africa - Créateurs d'Expériences Autour de la Femme</title>
     <meta name="description" content="Beauty Brunch Africa - Créateurs d'Expériences Autour de la Femme. Libreville, Gabon.">
     
-    <!-- Fonts - Using exact Beauty Brunch brand fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Montserrat:wght@900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
@@ -20,7 +20,8 @@
 
         :root {
             --bb-pink: #FF1D8D;
-            --bb-white: #FFFFFF;
+            --bb-gold: #D4AF37;
+            --bb-blue: #2563eb;
         }
 
         html {
@@ -33,6 +34,60 @@
             background: #FFFFFF;
         }
 
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--bb-pink);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #1f2937;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--bb-pink);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--bb-pink);
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -41,12 +96,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem 1rem;
+            padding: 8rem 2rem 4rem;
             background: linear-gradient(135deg, #ffffff 0%, #fce7f3 50%, #ffe4e6 100%);
             overflow: hidden;
         }
 
-        /* Animated background blobs */
         .blob-container {
             position: absolute;
             inset: 0;
@@ -92,18 +146,11 @@
         }
 
         @keyframes blob {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
         }
 
-        /* Logo Section */
         .logo-container {
             position: relative;
             z-index: 10;
@@ -145,8 +192,8 @@
             animation: fadeInUp 1s ease-out 0.3s forwards;
         }
 
-        /* Gallery Section */
-        .gallery-section {
+        /* Concepts Section */
+        .concepts-section {
             position: relative;
             z-index: 10;
             width: 100%;
@@ -156,58 +203,103 @@
             animation: fadeInUp 1s ease-out 0.5s forwards;
         }
 
-        .gallery-grid {
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--bb-pink);
+            margin-bottom: 3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+        }
+
+        .concepts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
             margin-bottom: 4rem;
         }
 
-        .gallery-item {
+        .concept-card {
             position: relative;
-            aspect-ratio: 4/3;
-            border-radius: 1rem;
+            background: white;
+            border-radius: 1.5rem;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(255, 29, 141, 0.15);
             transition: all 0.4s ease;
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-8px) scale(1.02);
+        .concept-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(255, 29, 141, 0.25);
         }
 
-        .gallery-item img {
+        .concept-image {
             width: 100%;
-            height: 100%;
+            height: 250px;
             object-fit: cover;
-            transition: transform 0.4s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(255, 29, 141, 0.7), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            display: flex;
-            align-items: flex-end;
+        .concept-content {
             padding: 2rem;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
+        .concept-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--bb-pink);
+            margin-bottom: 1rem;
         }
 
-        .overlay-text {
+        .concept-description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .concept-cta {
+            display: inline-block;
+            background: var(--bb-pink);
             color: white;
-            font-size: 1.25rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .concept-cta:hover {
+            background: #e01679;
+            transform: translateX(5px);
+        }
+
+        .concept-card.luxe .concept-title {
+            color: var(--bb-gold);
+        }
+
+        .concept-card.luxe .concept-cta {
+            background: var(--bb-gold);
+        }
+
+        .concept-card.luxe .concept-cta:hover {
+            background: #c09b2a;
+        }
+
+        .concept-card.corporate .concept-title {
+            color: var(--bb-blue);
+        }
+
+        .concept-card.corporate .concept-cta {
+            background: var(--bb-blue);
+        }
+
+        .concept-card.corporate .concept-cta:hover {
+            background: #1d4ed8;
         }
 
         /* Social Section */
@@ -316,24 +408,11 @@
             stroke: var(--bb-pink);
         }
 
-        /* Icon backgrounds */
-        .bg-tiktok {
-            background: linear-gradient(135deg, #00f2ea, #ff0050);
-        }
+        .bg-tiktok { background: linear-gradient(135deg, #00f2ea, #ff0050); }
+        .bg-instagram { background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45); }
+        .bg-facebook { background: linear-gradient(135deg, #0866FF, #1877F2); }
+        .bg-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
 
-        .bg-instagram {
-            background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45);
-        }
-
-        .bg-facebook {
-            background: linear-gradient(135deg, #0866FF, #1877F2);
-        }
-
-        .bg-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-        }
-
-        /* Gradient overlays */
         .gradient-overlay {
             position: absolute;
             inset: 0;
@@ -341,25 +420,12 @@
             transition: opacity 0.3s ease;
         }
 
-        .social-link:hover .gradient-overlay {
-            opacity: 0.1;
-        }
+        .social-link:hover .gradient-overlay { opacity: 0.1; }
 
-        .gradient-tiktok {
-            background: linear-gradient(135deg, #00f2ea, #ff0050);
-        }
-
-        .gradient-instagram {
-            background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45);
-        }
-
-        .gradient-facebook {
-            background: linear-gradient(135deg, #0866FF, #1877F2);
-        }
-
-        .gradient-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-        }
+        .gradient-tiktok { background: linear-gradient(135deg, #00f2ea, #ff0050); }
+        .gradient-instagram { background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45); }
+        .gradient-facebook { background: linear-gradient(135deg, #0866FF, #1877F2); }
+        .gradient-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
 
         .shine {
             position: absolute;
@@ -392,12 +458,6 @@
             margin-bottom: 0.5rem;
         }
 
-        .footer .email {
-            font-size: 0.75rem;
-            color: #9ca3af;
-        }
-
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -410,6 +470,25 @@
         }
 
         /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .logo-text-beauty,
+            .logo-text-brunch {
+                font-size: 3rem;
+            }
+
+            .concepts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (min-width: 768px) {
             .logo-text-beauty,
             .logo-text-brunch {
@@ -419,15 +498,6 @@
             .tagline {
                 font-size: 2rem;
             }
-
-            .social-title {
-                font-size: 2.5rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                gap: 2rem;
-            }
         }
 
         @media (min-width: 1024px) {
@@ -435,42 +505,79 @@
             .logo-text-brunch {
                 font-size: 8rem;
             }
-
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Beauty Brunch</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="atelier.html">Atelier</a></li>
+                <li><a href="luxe.html">Luxe</a></li>
+                <li><a href="corporate.html">Corporate</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
-        <!-- Animated background -->
         <div class="blob-container">
             <div class="blob blob1"></div>
             <div class="blob blob2"></div>
             <div class="blob blob3"></div>
         </div>
 
-        <!-- Logo -->
         <div class="logo-container">
             <h1 class="logo-text-beauty">Beauty</h1>
             <h1 class="logo-text-brunch">Brunch</h1>
         </div>
 
-        <!-- Tagline -->
         <p class="tagline">Créateurs d'Expériences Autour de la Femme</p>
 
-        <!-- Gallery Section -->
-        <div class="gallery-section">
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Beauty Brunch Event">
-                    <div class="gallery-overlay">
-                        <span class="overlay-text">Beauty Brunch Experience</span>
+        <!-- Concepts Section -->
+        <div class="concepts-section">
+            <h2 class="section-title">Nos Concepts</h2>
+            
+            <div class="concepts-grid">
+                <!-- Beauty Brunch Atelier -->
+                <a href="atelier.html" class="concept-card atelier">
+                    <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Atelier" class="concept-image">
+                    <div class="concept-content">
+                        <h3 class="concept-title">Beauty Brunch Atelier</h3>
+                        <p class="concept-description">
+                            Notre concept original : des événements intimes et conviviaux autour de la beauté, du bien-être et de l'entrepreneuriat féminin.
+                        </p>
+                        <span class="concept-cta">Découvrir →</span>
                     </div>
-                </div>
-                <!-- More gallery items will be added dynamically -->
+                </a>
+
+                <!-- Beauty Brunch Luxe -->
+                <a href="luxe.html" class="concept-card luxe">
+                    <img src="Beauty_Brunch_2021.jpg" alt="Beauty Brunch Luxe" class="concept-image">
+                    <div class="concept-content">
+                        <h3 class="concept-title">Beauty Brunch Luxe</h3>
+                        <p class="concept-description">
+                            Des expériences premium exclusives avec prestations haut de gamme, chefs privés et animations sophistiquées.
+                        </p>
+                        <span class="concept-cta">Découvrir →</span>
+                    </div>
+                </a>
+
+                <!-- Beauty Brunch Corporate -->
+                <a href="corporate.html" class="concept-card corporate">
+                    <img src="Beauty_Brunch_2022.jpg" alt="Beauty Brunch Corporate" class="concept-image">
+                    <div class="concept-content">
+                        <h3 class="concept-title">Beauty Brunch Corporate</h3>
+                        <p class="concept-description">
+                            Solutions sur mesure pour entreprises et associations : team building, événements réseautage et célébrations d'équipe.
+                        </p>
+                        <span class="concept-cta">Découvrir →</span>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -479,7 +586,6 @@
             <h2 class="social-title">Rejoignez notre communauté</h2>
             
             <div class="social-links">
-                <!-- TikTok -->
                 <a href="https://vm.tiktok.com/ZMD1cD6sw/" target="_blank" rel="noopener noreferrer" class="social-link">
                     <div class="gradient-overlay gradient-tiktok"></div>
                     <div class="shine"></div>
@@ -499,7 +605,6 @@
                     </div>
                 </a>
 
-                <!-- Instagram -->
                 <a href="https://www.instagram.com/beautybrunchafrica" target="_blank" rel="noopener noreferrer" class="social-link">
                     <div class="gradient-overlay gradient-instagram"></div>
                     <div class="shine"></div>
@@ -520,7 +625,6 @@
                     </div>
                 </a>
 
-                <!-- Facebook -->
                 <a href="https://www.facebook.com/share/1BHkvR4J9U/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link">
                     <div class="gradient-overlay gradient-facebook"></div>
                     <div class="shine"></div>
@@ -539,7 +643,6 @@
                     </div>
                 </a>
 
-                <!-- WhatsApp -->
                 <a href="https://whatsapp.com/channel/0029VbBWAhQFMqrgEau3982m" target="_blank" rel="noopener noreferrer" class="social-link">
                     <div class="gradient-overlay gradient-whatsapp"></div>
                     <div class="shine"></div>
@@ -560,49 +663,9 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="footer">
             <p>© 2025 Beauty Brunch Africa</p>
         </div>
     </section>
-
-   <!-- Load images dynamically -->
-<script>
-    // Event photos - CORRECTED filenames matching your GitHub repo
-    const eventPhotos = [
-        '_OP_9461.JPG',
-        'DSC09674.JPG',
-        '_OP_9485.JPG',
-        '_OP_9453.JPG',
-        'DSC09465.JPG',
-        '_OP_9456.JPG',
-        'DSC09473.JPG',
-        '_OP_9430.JPG',
-        'BB_Affiche_Final___.jpeg',
-        'BB_Logo.png',
-        'Beauty_Brunch_2021.jpg',
-        'Beauty_Brunch_2022.jpg',
-        'DSC09641.JPG',
-        'DSC09771.JPG'
-    ];
-
-    const galleryGrid = document.querySelector('.gallery-grid');
-    galleryGrid.innerHTML = '';
-
-    eventPhotos.forEach((photo, index) => {
-        const item = document.createElement('div');
-        item.className = 'gallery-item';
-        item.style.animationDelay = `${0.1 * index}s`;
-        
-        item.innerHTML = `
-            <img src="${photo}" alt="Beauty Brunch Event ${index + 1}" loading="lazy" onerror="this.style.display='none'">
-            <div class="gallery-overlay">
-                <span class="overlay-text">Beauty Brunch Experience</span>
-            </div>
-        `;
-        
-        galleryGrid.appendChild(item);
-    });
-</script>
 </body>
 </html>
