@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Brunch Luxe - Expérience Premium Exclusive</title>
-    <meta name="description" content="Beauty Brunch Luxe - Des expériences premium exclusives avec prestations VIP et services haut de gamme.">
+    <title>Beauty Brunch Luxe - Expérience Premium</title>
+    <meta name="description" content="Beauty Brunch Luxe - Des expériences premium et exclusives avec prestations haut de gamme.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,27 +15,96 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-        .page-header {
+        /* Fixed Header */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 2rem 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: padding 0.3s ease;
+        }
+
+        .fixed-header.scrolled {
+            padding: 0.8rem 1rem;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
             text-align: center;
-            padding: 10rem 2rem 3rem;
+        }
+
+        .header-logo-container {
+            display: inline-block;
             position: relative;
-            z-index: 10;
         }
 
-        .page-title {
+        .header-logo {
+            max-height: 120px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            transition: max-height 0.3s ease;
+        }
+
+        .fixed-header.scrolled .header-logo {
+            max-height: 60px;
+        }
+
+        .header-subtitle {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-size: 0.9rem;
+            font-weight: 600;
             color: var(--bb-pink);
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
+            text-align: center;
+            margin-top: 0.3rem;
+            transition: font-size 0.3s ease;
         }
 
-        .page-subtitle {
-            font-size: 1.5rem;
-            color: #374151;
-            font-weight: 300;
-            animation: fadeInUp 1s ease-out 0.2s backwards;
+        .fixed-header.scrolled .header-subtitle {
+            font-size: 0.65rem;
+            margin-top: 0.2rem;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            transition: margin-top 0.3s ease;
+        }
+
+        .fixed-header.scrolled .header-nav {
+            margin-top: 0.8rem;
+        }
+
+        .header-nav a {
+            color: var(--bb-pink);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+
+        .header-nav a:hover,
+        .header-nav a.active {
+            background: var(--bb-pink);
+            color: white;
+        }
+
+        .page-content {
+            padding-top: 12rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
 
         .info-box {
@@ -91,11 +160,6 @@
             margin-bottom: 0.5rem;
         }
 
-        .price-tag .price-note {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
         .luxury-badge {
             display: inline-block;
             background: linear-gradient(135deg, #FFD700, #FFA500);
@@ -103,58 +167,53 @@
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
             font-weight: bold;
-            margin: 1rem 0;
+            margin: 1rem 0 2rem;
         }
 
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.5rem;
+            .header-logo {
+                max-height: 80px;
+            }
+
+            .fixed-header.scrolled .header-logo {
+                max-height: 50px;
+            }
+
+            .page-content {
+                padding-top: 10rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html">
-                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="nav-logo-img">
-            </a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="atelier.html">Atelier</a></li>
-                <li><a href="luxe.html" class="active">Luxe</a></li>
-                <li><a href="corporate.html">Corporate</a></li>
-            </ul>
-            <button class="mobile-menu-btn">☰</button>
+    <!-- Fixed Header -->
+    <header class="fixed-header" id="fixedHeader">
+        <div class="header-content">
+            <div class="header-logo-container">
+                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="header-logo">
+                <p class="header-subtitle">Luxe</p>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html">Accueil</a>
+                <a href="ateliers.html">Ateliers</a>
+                <a href="luxe.html" class="active">Luxe</a>
+                <a href="x.html">Beauty Brunch X</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="blob-container">
-            <div class="blob blob1"></div>
-            <div class="blob blob2"></div>
-            <div class="blob blob3"></div>
-        </div>
-
-        <div class="page-header">
+    <!-- Page Content -->
+    <div class="page-content">
+        <div style="text-align: center;">
             <span class="luxury-badge">⭐ EXPÉRIENCE PREMIUM ⭐</span>
-            <h1 class="page-title">Beauty Brunch Luxe</h1>
-            <p class="page-subtitle">L'excellence au service de votre expérience</p>
         </div>
-    </section>
 
-    <!-- Content Section -->
-    <section class="content-section">
-        <div class="section-subtitle" style="animation: fadeInUp 1s ease-out 0.3s backwards;">
-            Beauty Brunch Luxe élève l'expérience à un niveau supérieur avec des prestations VIP, 
-            des lieux d'exception et un service personnalisé. Pour celles qui recherchent l'excellence 
-            et l'exclusivité.
+        <div class="section-subtitle">
+            Des expériences premium et exclusives avec prestations haut de gamme.
         </div>
 
         <!-- Ce qui est inclus -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
+        <div class="info-box">
             <h3>✨ Ce qui est inclus</h3>
             <ul>
                 <li><strong>Chef Privé</strong> : Menu gastronomique sur mesure préparé par un chef étoilé</li>
@@ -169,7 +228,7 @@
         </div>
 
         <!-- Format -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.5s backwards;">
+        <div class="info-box">
             <h3>📋 Format de l'événement</h3>
             <ul>
                 <li><strong>Durée</strong> : 4 à 6 heures</li>
@@ -180,13 +239,13 @@
         </div>
 
         <!-- Tarifs -->
-        <div class="price-tag" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
+        <div class="price-tag">
             <div class="price">50 000 - 100 000 FCFA</div>
             <div class="price-note">Par personne · Prestations premium incluses</div>
         </div>
 
         <!-- Services Exclusifs -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.7s backwards;">
+        <div class="info-box">
             <h3>👑 Services exclusifs</h3>
             <ul>
                 <li>Accueil champagne et canapés</li>
@@ -199,11 +258,11 @@
         </div>
 
         <!-- Features Grid -->
-        <h2 class="section-title" style="margin-top: 4rem; animation: fadeInUp 1s ease-out 0.8s backwards;">
+        <h2 class="section-title" style="margin-top: 4rem;">
             L'Expérience Luxe en Détails
         </h2>
 
-        <div class="features-grid" style="animation: fadeInUp 1s ease-out 0.9s backwards;">
+        <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">👨‍🍳</div>
                 <h3>Gastronomie d'Exception</h3>
@@ -241,66 +300,38 @@
             </div>
         </div>
 
-        <!-- Gallery -->
-        <h2 class="section-title" style="margin-top: 4rem;">Nos Événements Luxe en Images</h2>
-        
-        <div class="gallery-grid" id="luxeGallery">
-            <!-- Gallery will be loaded dynamically -->
-        </div>
-
         <!-- CTA -->
         <div class="cta-section">
-            <h2>Rejoignez l'Élite</h2>
+            <h2>Prochaine Expérience Prévue Pour...</h2>
             <p>
-                Vivez une expérience premium exceptionnelle lors de notre prochain Beauty Brunch Luxe. 
-                Places très limitées. Réservation sur sélection.
+                Les détails de notre prochaine édition Beauty Brunch Luxe seront bientôt dévoilés. 
+                Contactez-nous pour être ajoutée à la liste VIP et recevoir votre invitation en avant-première.
             </p>
-            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20réserver%20pour%20un%20Beauty%20Brunch%20Luxe" class="cta-button" target="_blank">
+            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20être%20ajoutée%20à%20la%20liste%20VIP%20pour%20Beauty%20Brunch%20Luxe" class="cta-button" target="_blank">
                 Demander Une Invitation VIP
             </a>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
         <p>© 2025 Beauty Brunch Africa - Libreville, Gabon</p>
         <div class="footer-links">
             <a href="index.html">Accueil</a>
-            <a href="atelier.html">Beauty Brunch Atelier</a>
-            <a href="corporate.html">Beauty Brunch Corporate</a>
+            <a href="ateliers.html">Beauty Brunch Ateliers</a>
+            <a href="x.html">Beauty Brunch X</a>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Shrinking navigation
-        const navbar = document.getElementById('navbar');
+        const fixedHeader = document.getElementById('fixedHeader');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
+                fixedHeader.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled');
+                fixedHeader.classList.remove('scrolled');
             }
-        });
-
-        // Load gallery images
-        const luxePhotos = [
-            'Beauty_Brunch_2021.jpg',
-            'Beauty_Brunch_2022.jpg',
-            'DSC09641.JPG',
-            'DSC09771.JPG',
-            'DSC09465.JPG',
-            'DSC09473.JPG'
-        ];
-
-        const galleryGrid = document.getElementById('luxeGallery');
-        luxePhotos.forEach((photo, index) => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.innerHTML = `
-                <img src="${photo}" alt="Beauty Brunch Luxe ${index + 1}" loading="lazy" onerror="this.parentElement.style.display='none'">
-            `;
-            galleryGrid.appendChild(item);
         });
     </script>
 </body>
