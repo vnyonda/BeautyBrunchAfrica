@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Brunch Luxe - Expérience Premium</title>
+    <title>Beauty Brunch Luxe - Expérience Premium Exclusive</title>
     <meta name="description" content="Beauty Brunch Luxe - Des expériences premium et exclusives avec prestations haut de gamme.">
     
     <!-- Fonts -->
@@ -15,149 +15,10 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-        /* Fixed Header */
-        .fixed-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 2rem 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: padding 0.3s ease;
-        }
-
-        .fixed-header.scrolled {
-            padding: 0.8rem 1rem;
-        }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .header-logo-container {
-            display: inline-block;
-            position: relative;
-        }
-
-        .header-logo {
-            max-height: 120px;
-            width: auto;
-            display: block;
-            margin: 0 auto;
-            transition: max-height 0.3s ease;
-        }
-
-        .fixed-header.scrolled .header-logo {
-            max-height: 60px;
-        }
-
-        .header-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--bb-pink);
-            text-align: center;
-            margin-top: 0.3rem;
-            transition: font-size 0.3s ease;
-        }
-
-        .fixed-header.scrolled .header-subtitle {
-            font-size: 0.65rem;
-            margin-top: 0.2rem;
-        }
-
-        .header-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-            transition: margin-top 0.3s ease;
-        }
-
-        .fixed-header.scrolled .header-nav {
-            margin-top: 0.8rem;
-        }
-
-        .header-nav a {
-            color: var(--bb-pink);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-        }
-
-        .header-nav a:hover,
-        .header-nav a.active {
-            background: var(--bb-pink);
-            color: white;
-        }
-
-        .page-content {
+        .page-hero {
             padding-top: 12rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        .info-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 30px rgba(255, 29, 141, 0.1);
-            margin: 2rem 0;
-            border-left: 5px solid var(--bb-pink);
-        }
-
-        .info-box h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--bb-pink);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .info-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .info-box ul li {
-            padding: 0.5rem 0;
-            padding-left: 2rem;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .info-box ul li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--bb-pink);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .price-tag {
-            background: linear-gradient(135deg, var(--bb-pink), #e01679);
-            color: white;
-            padding: 1.5rem 2rem;
-            border-radius: 1rem;
+            padding-bottom: 3rem;
             text-align: center;
-            margin: 2rem 0;
-        }
-
-        .price-tag .price {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
         }
 
         .luxury-badge {
@@ -167,53 +28,52 @@
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
             font-weight: bold;
-            margin: 1rem 0 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .header-logo {
-                max-height: 80px;
-            }
-
-            .fixed-header.scrolled .header-logo {
-                max-height: 50px;
-            }
-
-            .page-content {
-                padding-top: 10rem;
-            }
+            margin-bottom: 2rem;
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Header -->
-    <header class="fixed-header" id="fixedHeader">
-        <div class="header-content">
-            <div class="header-logo-container">
-                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="header-logo">
-                <p class="header-subtitle">Luxe</p>
+    <!-- Navigation with Logo + "Luxe" subtitle -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-with-subtitle">
+                <a href="index.html">
+                    <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="nav-logo-img">
+                </a>
+                <span class="nav-logo-subtitle">Luxe</span>
             </div>
-            <nav class="header-nav">
-                <a href="index.html">Accueil</a>
-                <a href="ateliers.html">Ateliers</a>
-                <a href="luxe.html" class="active">Luxe</a>
-                <a href="x.html">Beauty Brunch X</a>
-            </nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="ateliers.html">Ateliers</a></li>
+                <li><a href="luxe.html" class="active">Luxe</a></li>
+                <li><a href="corporate.html">Beauty Brunch X</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <!-- Page Content -->
-    <div class="page-content">
-        <div style="text-align: center;">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="blob-container">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="blob blob3"></div>
+        </div>
+
+        <div class="page-hero" style="position: relative; z-index: 10;">
             <span class="luxury-badge">⭐ EXPÉRIENCE PREMIUM ⭐</span>
         </div>
+    </section>
 
-        <div class="section-subtitle">
-            Des expériences premium et exclusives avec prestations haut de gamme.
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="section-subtitle" style="animation: fadeInUp 1s ease-out 0.3s backwards;">
+            Beauty Brunch Luxe élève l'expérience à un niveau supérieur avec des prestations VIP, 
+            des lieux d'exception et un service personnalisé. Pour celles qui recherchent l'excellence 
+            et l'exclusivité.
         </div>
 
         <!-- Ce qui est inclus -->
-        <div class="info-box">
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
             <h3>✨ Ce qui est inclus</h3>
             <ul>
                 <li><strong>Chef Privé</strong> : Menu gastronomique sur mesure préparé par un chef étoilé</li>
@@ -228,7 +88,7 @@
         </div>
 
         <!-- Format -->
-        <div class="info-box">
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.5s backwards;">
             <h3>📋 Format de l'événement</h3>
             <ul>
                 <li><strong>Durée</strong> : 4 à 6 heures</li>
@@ -239,13 +99,13 @@
         </div>
 
         <!-- Tarifs -->
-        <div class="price-tag">
+        <div class="price-tag" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
             <div class="price">50 000 - 100 000 FCFA</div>
             <div class="price-note">Par personne · Prestations premium incluses</div>
         </div>
 
         <!-- Services Exclusifs -->
-        <div class="info-box">
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.7s backwards;">
             <h3>👑 Services exclusifs</h3>
             <ul>
                 <li>Accueil champagne et canapés</li>
@@ -258,11 +118,11 @@
         </div>
 
         <!-- Features Grid -->
-        <h2 class="section-title" style="margin-top: 4rem;">
+        <h2 class="section-title" style="margin-top: 4rem; animation: fadeInUp 1s ease-out 0.8s backwards;">
             L'Expérience Luxe en Détails
         </h2>
 
-        <div class="features-grid">
+        <div class="features-grid" style="animation: fadeInUp 1s ease-out 0.9s backwards;">
             <div class="feature-card">
                 <div class="feature-icon">👨‍🍳</div>
                 <h3>Gastronomie d'Exception</h3>
@@ -302,16 +162,16 @@
 
         <!-- CTA -->
         <div class="cta-section">
-            <h2>Prochaine Expérience Prévue Pour...</h2>
+            <h2>Prochaine Expérience Programmée Pour...</h2>
             <p>
-                Les détails de notre prochaine édition Beauty Brunch Luxe seront bientôt dévoilés. 
-                Contactez-nous pour être ajoutée à la liste VIP et recevoir votre invitation en avant-première.
+                Vivez une expérience premium exceptionnelle lors de notre prochain Beauty Brunch Luxe. 
+                Places très limitées. Réservation sur sélection.
             </p>
-            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20être%20ajoutée%20à%20la%20liste%20VIP%20pour%20Beauty%20Brunch%20Luxe" class="cta-button" target="_blank">
+            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20réserver%20pour%20un%20Beauty%20Brunch%20Luxe" class="cta-button" target="_blank">
                 Demander Une Invitation VIP
             </a>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -319,18 +179,19 @@
         <div class="footer-links">
             <a href="index.html">Accueil</a>
             <a href="ateliers.html">Beauty Brunch Ateliers</a>
-            <a href="x.html">Beauty Brunch X</a>
+            <a href="corporate.html">Beauty Brunch X</a>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        const fixedHeader = document.getElementById('fixedHeader');
+        // Shrinking navigation
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
-                fixedHeader.classList.add('scrolled');
+                navbar.classList.add('scrolled');
             } else {
-                fixedHeader.classList.remove('scrolled');
+                navbar.classList.remove('scrolled');
             }
         });
     </script>
