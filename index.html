@@ -11,81 +11,86 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Montserrat:wght@900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
     
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bb-pink: #FF1D8D;
-            --bb-gold: #D4AF37;
-            --bb-blue: #2563eb;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            overflow-x: hidden;
-            background: #FFFFFF;
-        }
-
-        /* Navigation */
-        .navbar {
+        /* Fixed Header with Centered Logo */
+        .fixed-header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 2rem;
+            padding: 2rem 1rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: padding 0.3s ease;
         }
 
-        .nav-container {
+        .fixed-header.scrolled {
+            padding: 0.8rem 1rem;
+        }
+
+        .header-content {
             max-width: 1400px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
         }
 
-        .nav-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: var(--bb-pink);
-            text-decoration: none;
+        .header-logo {
+            max-height: 120px;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+            transition: max-height 0.3s ease;
         }
 
-        .nav-menu {
+        .fixed-header.scrolled .header-logo {
+            max-height: 60px;
+        }
+
+        .header-tagline {
+            font-size: 1.2rem;
+            color: #374151;
+            font-weight: 300;
+            margin-top: 0.8rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .fixed-header.scrolled .header-tagline {
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .header-nav {
             display: flex;
+            justify-content: center;
             gap: 2rem;
-            list-style: none;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            transition: margin-top 0.3s ease;
         }
 
-        .nav-menu a {
-            color: #1f2937;
+        .fixed-header.scrolled .header-nav {
+            margin-top: 0.8rem;
+        }
+
+        .header-nav a {
+            color: var(--bb-pink);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
         }
 
-        .nav-menu a:hover {
-            color: var(--bb-pink);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--bb-pink);
+        .header-nav a:hover,
+        .header-nav a.active {
+            background: var(--bb-pink);
+            color: white;
         }
 
         /* Hero Section */
@@ -96,137 +101,53 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 8rem 2rem 4rem;
+            padding: 15rem 2rem 4rem;
             background: linear-gradient(135deg, #ffffff 0%, #fce7f3 50%, #ffe4e6 100%);
             overflow: hidden;
         }
 
-        .blob-container {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
-            mix-blend-mode: multiply;
-        }
-
-        .blob1 {
-            top: 5rem;
-            left: 2.5rem;
-            width: 20rem;
-            height: 20rem;
-            background: var(--bb-pink);
-            animation: blob 8s infinite;
-        }
-
-        .blob2 {
-            top: 10rem;
-            right: 2.5rem;
-            width: 18rem;
-            height: 18rem;
-            background: #fda4af;
-            animation: blob 8s infinite;
-            animation-delay: 2s;
-        }
-
-        .blob3 {
-            bottom: -2rem;
-            left: 50%;
-            width: 18rem;
-            height: 18rem;
-            background: #fbcfe8;
-            animation: blob 8s infinite;
-            animation-delay: 4s;
-        }
-
-        @keyframes blob {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        .logo-container {
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #666;
+            animation: fadeInUp 1s ease-out 0.5s backwards;
             position: relative;
             z-index: 10;
-            text-align: center;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out forwards;
         }
 
-        .logo-text-beauty {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-weight: 400;
-            font-size: 5rem;
-            line-height: 1;
-            color: var(--bb-pink);
-            margin: 0;
-        }
-
-        .logo-text-brunch {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 5rem;
-            line-height: 1;
-            color: var(--bb-pink);
-            margin: 0;
-        }
-
-        .tagline {
-            position: relative;
-            z-index: 10;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: #374151;
-            letter-spacing: 0.05em;
-            text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.3s forwards;
-        }
-
-        /* Concepts Section */
         .concepts-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
             position: relative;
             z-index: 10;
-            width: 100%;
-            max-width: 1400px;
-            padding: 4rem 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.5s forwards;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--bb-pink);
-            margin-bottom: 3rem;
             font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
             font-weight: 900;
+            color: var(--bb-pink);
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
         .concepts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem;
+            margin: 4rem 0;
         }
 
         .concept-card {
-            position: relative;
             background: white;
             border-radius: 1.5rem;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(255, 29, 141, 0.15);
             transition: all 0.4s ease;
-            cursor: pointer;
             text-decoration: none;
             color: inherit;
             display: block;
@@ -268,7 +189,6 @@
             color: white;
             padding: 0.8rem 2rem;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
         }
@@ -278,250 +198,56 @@
             transform: translateX(5px);
         }
 
-        .concept-card.luxe .concept-title {
-            color: var(--bb-gold);
-        }
-
-        .concept-card.luxe .concept-cta {
-            background: var(--bb-gold);
-        }
-
-        .concept-card.luxe .concept-cta:hover {
-            background: #c09b2a;
-        }
-
-        .concept-card.corporate .concept-title {
-            color: var(--bb-blue);
-        }
-
-        .concept-card.corporate .concept-cta {
-            background: var(--bb-blue);
-        }
-
-        .concept-card.corporate .concept-cta:hover {
-            background: #1d4ed8;
-        }
-
-        /* Social Section */
-        .social-section {
-            position: relative;
-            z-index: 10;
-            max-width: 28rem;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.7s forwards;
-        }
-
-        .social-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            text-align: center;
-            color: #1f2937;
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .social-link {
-            position: relative;
-            display: block;
-            padding: 1.5rem;
-            background: white;
-            border: 2px solid #f3f4f6;
-            border-radius: 1rem;
-            text-decoration: none;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-            border-color: var(--bb-pink);
-        }
-
-        .social-link-content {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .social-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 0.75rem;
-            transition: transform 0.3s ease;
-        }
-
-        .social-link:hover .social-icon {
-            transform: rotate(12deg) scale(1.1);
-        }
-
-        .icon {
-            width: 1.5rem;
-            height: 1.5rem;
-            stroke: white;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-        }
-
-        .social-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1f2937;
-        }
-
-        .arrow {
-            width: 1.5rem;
-            height: 1.5rem;
-            stroke: #9ca3af;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover .arrow {
-            transform: translateX(8px);
-            stroke: var(--bb-pink);
-        }
-
-        .bg-tiktok { background: linear-gradient(135deg, #00f2ea, #ff0050); }
-        .bg-instagram { background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45); }
-        .bg-facebook { background: linear-gradient(135deg, #0866FF, #1877F2); }
-        .bg-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
-
-        .gradient-overlay {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .social-link:hover .gradient-overlay { opacity: 0.1; }
-
-        .gradient-tiktok { background: linear-gradient(135deg, #00f2ea, #ff0050); }
-        .gradient-instagram { background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45); }
-        .gradient-facebook { background: linear-gradient(135deg, #0866FF, #1877F2); }
-        .gradient-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
-
-        .shine {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, transparent, white, transparent);
-            opacity: 0;
-            transform: translateX(-100%);
-            transition: all 0.7s ease;
-        }
-
-        .social-link:hover .shine {
-            opacity: 0.3;
-            transform: translateX(100%);
-        }
-
-        /* Footer */
-        .footer {
-            position: relative;
-            z-index: 10;
-            margin-top: 4rem;
-            padding: 2rem 1rem 3rem;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.9s forwards;
-        }
-
-        .footer p {
-            font-size: 0.875rem;
-            color: #6b7280;
-            margin-bottom: 0.5rem;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
+            .header-logo {
+                max-height: 80px;
             }
 
-            .mobile-menu-btn {
-                display: block;
+            .fixed-header.scrolled .header-logo {
+                max-height: 50px;
             }
 
-            .logo-text-beauty,
-            .logo-text-brunch {
-                font-size: 3rem;
+            .header-tagline {
+                font-size: 1rem;
+            }
+
+            .fixed-header.scrolled .header-tagline {
+                font-size: 0.75rem;
+            }
+
+            .header-nav {
+                gap: 1rem;
+            }
+
+            .header-nav a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
             }
 
             .concepts-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        @media (min-width: 768px) {
-            .logo-text-beauty,
-            .logo-text-brunch {
-                font-size: 7rem;
-            }
-
-            .tagline {
-                font-size: 2rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .logo-text-beauty,
-            .logo-text-brunch {
-                font-size: 8rem;
+            .hero {
+                padding: 12rem 2rem 4rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Beauty Brunch</a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="atelier.html">Atelier</a></li>
-                <li><a href="luxe.html">Luxe</a></li>
-                <li><a href="corporate.html">Corporate</a></li>
-            </ul>
-            <button class="mobile-menu-btn">☰</button>
+    <!-- Fixed Header with Logo & Tagline -->
+    <header class="fixed-header" id="fixedHeader">
+        <div class="header-content">
+            <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="header-logo">
+            <p class="header-tagline">Créateurs d'Expériences Autour de la Femme</p>
+            <nav class="header-nav">
+                <a href="index.html" class="active">Accueil</a>
+                <a href="ateliers.html">Ateliers</a>
+                <a href="luxe.html">Luxe</a>
+                <a href="x.html">Beauty Brunch X</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -531,83 +257,69 @@
             <div class="blob blob3"></div>
         </div>
 
-        <div class="logo-container">
-            <h1 class="logo-text-beauty">Beauty</h1>
-            <h1 class="logo-text-brunch">Brunch</h1>
+        <div class="intro-text">
+            <p>
+                Beauty Brunch Africa est bien plus qu'un événement, c'est une célébration de la femme 
+                moderne dans toute sa splendeur. Nous créons des expériences uniques où la beauté, 
+                le bien-être et l'entrepreneuriat féminin se rencontrent dans une atmosphère raffinée 
+                et inspirante.
+            </p>
         </div>
-
-        <p class="tagline">Créateurs d'Expériences Autour de la Femme</p>
 
         <!-- Concepts Section -->
         <div class="concepts-section">
             <h2 class="section-title">Nos Concepts</h2>
-            
+
             <div class="concepts-grid">
-                <!-- Beauty Brunch Atelier -->
-                <a href="atelier.html" class="concept-card atelier">
-                    <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Atelier" class="concept-image">
+                <!-- Beauty Brunch Ateliers -->
+                <a href="ateliers.html" class="concept-card">
+                    <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Ateliers" class="concept-image">
                     <div class="concept-content">
-                        <h3 class="concept-title">Beauty Brunch Atelier</h3>
+                        <h3 class="concept-title">Beauty Brunch Ateliers</h3>
                         <p class="concept-description">
-                            Notre concept original : des événements intimes et conviviaux autour de la beauté, du bien-être et de l'entrepreneuriat féminin.
+                            Notre concept original : des événements conviviaux autour de la beauté, du bien-être 
+                            et de l'épanouissement féminin.
                         </p>
                         <span class="concept-cta">Découvrir →</span>
                     </div>
                 </a>
 
                 <!-- Beauty Brunch Luxe -->
-                <a href="luxe.html" class="concept-card luxe">
+                <a href="luxe.html" class="concept-card">
                     <img src="Beauty_Brunch_2021.jpg" alt="Beauty Brunch Luxe" class="concept-image">
                     <div class="concept-content">
                         <h3 class="concept-title">Beauty Brunch Luxe</h3>
                         <p class="concept-description">
-                            Des expériences premium exclusives avec prestations haut de gamme, chefs privés et animations sophistiquées.
+                            Des expériences premium et exclusives avec prestations haut de gamme.
                         </p>
                         <span class="concept-cta">Découvrir →</span>
                     </div>
                 </a>
 
-                <!-- Beauty Brunch Corporate -->
-                <a href="corporate.html" class="concept-card corporate">
-                    <img src="Beauty_Brunch_2022.jpg" alt="Beauty Brunch Corporate" class="concept-image">
+                <!-- Beauty Brunch X -->
+                <a href="x.html" class="concept-card">
+                    <img src="Beauty_Brunch_2022.jpg" alt="Beauty Brunch X" class="concept-image">
                     <div class="concept-content">
-                        <h3 class="concept-title">Beauty Brunch Corporate</h3>
+                        <h3 class="concept-title">Beauty Brunch X</h3>
                         <p class="concept-description">
-                            Solutions sur mesure pour entreprises et associations : team building, événements réseautage et célébrations d'équipe.
+                            Événements sur mesure pour entreprises, associations, ou ministère : team building, 
+                            réseautage ou encore célébrations d'équipe. Travaillons ensemble sur un événement 
+                            qui valorise les femmes de votre entreprise.
                         </p>
                         <span class="concept-cta">Découvrir →</span>
                     </div>
                 </a>
             </div>
         </div>
+    </section>
 
-        <!-- Social Links -->
+    <!-- Social Links Section -->
+    <section class="content-section">
+        <h2 class="section-title">Rejoignez Notre Communauté</h2>
+        
         <div class="social-section">
-            <h2 class="social-title">Rejoignez notre communauté</h2>
-            
             <div class="social-links">
-                <a href="https://vm.tiktok.com/ZMD1cD6sw/" target="_blank" rel="noopener noreferrer" class="social-link">
-                    <div class="gradient-overlay gradient-tiktok"></div>
-                    <div class="shine"></div>
-                    <div class="social-link-content">
-                        <div class="social-left">
-                            <div class="social-icon bg-tiktok">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M9 8h10v10H9z"/>
-                                    <polyline points="9 12 9 8 13 8"/>
-                                </svg>
-                            </div>
-                            <span class="social-name">TikTok</span>
-                        </div>
-                        <svg class="arrow" viewBox="0 0 24 24">
-                            <polyline points="9 5 16 12 9 19"></polyline>
-                        </svg>
-                    </div>
-                </a>
-
                 <a href="https://www.instagram.com/beautybrunchafrica" target="_blank" rel="noopener noreferrer" class="social-link">
-                    <div class="gradient-overlay gradient-instagram"></div>
-                    <div class="shine"></div>
                     <div class="social-link-content">
                         <div class="social-left">
                             <div class="social-icon bg-instagram">
@@ -626,8 +338,6 @@
                 </a>
 
                 <a href="https://www.facebook.com/share/1BHkvR4J9U/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link">
-                    <div class="gradient-overlay gradient-facebook"></div>
-                    <div class="shine"></div>
                     <div class="social-link-content">
                         <div class="social-left">
                             <div class="social-icon bg-facebook">
@@ -643,9 +353,24 @@
                     </div>
                 </a>
 
+                <a href="https://vm.tiktok.com/ZMD1cD6sw/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <div class="social-link-content">
+                        <div class="social-left">
+                            <div class="social-icon bg-tiktok">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M9 8h10v10H9z"/>
+                                    <polyline points="9 12 9 8 13 8"/>
+                                </svg>
+                            </div>
+                            <span class="social-name">TikTok</span>
+                        </div>
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <polyline points="9 5 16 12 9 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
                 <a href="https://whatsapp.com/channel/0029VbBWAhQFMqrgEau3982m" target="_blank" rel="noopener noreferrer" class="social-link">
-                    <div class="gradient-overlay gradient-whatsapp"></div>
-                    <div class="shine"></div>
                     <div class="social-link-content">
                         <div class="social-left">
                             <div class="social-icon bg-whatsapp">
@@ -662,10 +387,30 @@
                 </a>
             </div>
         </div>
-
-        <div class="footer">
-            <p>© 2025 Beauty Brunch Africa</p>
-        </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Beauty Brunch Africa - Libreville, Gabon</p>
+        <div class="footer-links">
+            <a href="ateliers.html">Beauty Brunch Ateliers</a>
+            <a href="luxe.html">Beauty Brunch Luxe</a>
+            <a href="x.html">Beauty Brunch X</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Shrinking header on scroll
+        const fixedHeader = document.getElementById('fixedHeader');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                fixedHeader.classList.add('scrolled');
+            } else {
+                fixedHeader.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
