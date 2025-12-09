@@ -20,7 +20,7 @@ body {
     background: #FFFFFF;
 }
 
-/* Sticky Navigation with Shrinking Logo */
+/* Sticky Navigation with Shrinking Logo - CENTERED */
 .navbar {
     position: fixed;
     top: 0;
@@ -42,18 +42,64 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
+}
+
+.nav-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
 .nav-logo-img {
-    height: 80px;
+    height: 100px;
     width: auto;
     transition: all 0.3s ease;
 }
 
 .navbar.scrolled .nav-logo-img {
-    height: 50px;
+    height: 60px;
+}
+
+.nav-tagline {
+    font-size: 0.9rem;
+    color: var(--bb-dark);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.navbar.scrolled .nav-tagline {
+    font-size: 0.7rem;
+    margin-top: 0.25rem;
+}
+
+/* Logo with subtitle (Ateliers, Luxe, X) */
+.nav-logo-with-subtitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.nav-logo-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--bb-pink);
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled .nav-logo-subtitle {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
 }
 
 .nav-menu {
@@ -61,6 +107,8 @@ body {
     gap: 2rem;
     list-style: none;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav-menu a {
@@ -432,6 +480,65 @@ body {
     stroke: var(--bb-pink);
 }
 
+/* Info Boxes */
+.info-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(255, 29, 141, 0.1);
+    margin: 2rem 0;
+    border-left: 5px solid var(--bb-pink);
+}
+
+.info-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--bb-pink);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-box ul li {
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.info-box ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--bb-pink);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.price-tag {
+    background: linear-gradient(135deg, var(--bb-pink), #e01679);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.price-tag .price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.price-tag .price-note {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -452,19 +559,23 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: block;
+        gap: 1rem;
     }
 
     .nav-logo-img {
-        height: 60px;
+        height: 70px;
     }
 
     .navbar.scrolled .nav-logo-img {
-        height: 40px;
+        height: 45px;
+    }
+
+    .nav-tagline {
+        font-size: 0.75rem;
+    }
+
+    .navbar.scrolled .nav-tagline {
+        font-size: 0.6rem;
     }
 
     .section-title {
