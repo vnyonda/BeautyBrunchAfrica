@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Brunch Atelier - Expérience Intimiste et Conviviale</title>
+    <meta name="description" content="Beauty Brunch Atelier - Des événements intimes où beauté, bien-être et entrepreneuriat féminin se rencontrent.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Montserrat:wght@900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .page-header {
+            text-align: center;
+            padding: 10rem 2rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--bb-pink);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-subtitle {
+            font-size: 1.5rem;
+            color: #374151;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 29, 141, 0.1);
+            margin: 2rem 0;
+            border-left: 5px solid var(--bb-pink);
+        }
+
+        .info-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--bb-pink);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box ul li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .info-box ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--bb-pink);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, var(--bb-pink), #e01679);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .price-tag .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-tag .price-note {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html">
+                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="nav-logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="atelier.html" class="active">Atelier</a></li>
+                <li><a href="luxe.html">Luxe</a></li>
+                <li><a href="corporate.html">Corporate</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="blob-container">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="blob blob3"></div>
+        </div>
+
+        <div class="page-header">
+            <h1 class="page-title">Beauty Brunch Atelier</h1>
+            <p class="page-subtitle">L'expérience originale, intimiste et conviviale</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="section-subtitle" style="animation: fadeInUp 1s ease-out 0.3s backwards;">
+            Notre concept fondateur où la beauté rencontre le bien-être dans une atmosphère chaleureuse 
+            et authentique. Un moment privilégié entre femmes pour se ressourcer, apprendre et créer des liens.
+        </div>
+
+        <!-- Ce qui est inclus -->
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
+            <h3>✨ Ce qui est inclus</h3>
+            <ul>
+                <li><strong>Brunch Gourmand</strong> : Buffet varié avec options salées et sucrées, boissons chaudes et fraîches</li>
+                <li><strong>Ateliers Beauté</strong> : Démonstrations maquillage, soins de la peau, conseils beauté personnalisés</li>
+                <li><strong>Animations</strong> : Jeux interactifs, mini-tombola, moments de partage</li>
+                <li><strong>Goodie Bag</strong> : Sac cadeau avec produits de nos partenaires beauté et lifestyle</li>
+                <li><strong>Photobooth</strong> : Espace photo instagrammable pour immortaliser votre journée</li>
+                <li><strong>Networking</strong> : Rencontrez des femmes inspirantes et élargissez votre réseau</li>
+            </ul>
+        </div>
+
+        <!-- Format -->
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.5s backwards;">
+            <h3>📋 Format de l'événement</h3>
+            <ul>
+                <li><strong>Durée</strong> : 3 à 4 heures</li>
+                <li><strong>Nombre de participantes</strong> : 20 à 40 personnes</li>
+                <li><strong>Ambiance</strong> : Conviviale, intimiste et inspirante</li>
+                <li><strong>Public cible</strong> : Femmes actives, entrepreneures, passionnées de beauté et bien-être</li>
+            </ul>
+        </div>
+
+        <!-- Tarifs -->
+        <div class="price-tag" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
+            <div class="price">15 000 - 25 000 FCFA</div>
+            <div class="price-note">Par personne · Selon les prestations choisies</div>
+        </div>
+
+        <!-- Thématiques -->
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.7s backwards;">
+            <h3>🎨 Thématiques populaires</h3>
+            <ul>
+                <li>Glow Up : Sublimer sa beauté naturelle</li>
+                <li>Self-Care Sunday : Prendre soin de soi</li>
+                <li>Boss Lady : Entrepreneuriat au féminin</li>
+                <li>Summer Vibes : Beauté et bien-être estival</li>
+                <li>Girl Power : Célébration de la femme moderne</li>
+            </ul>
+        </div>
+
+        <!-- Features Grid -->
+        <h2 class="section-title" style="margin-top: 4rem; animation: fadeInUp 1s ease-out 0.8s backwards;">
+            Pourquoi choisir Beauty Brunch Atelier ?
+        </h2>
+
+        <div class="features-grid" style="animation: fadeInUp 1s ease-out 0.9s backwards;">
+            <div class="feature-card">
+                <div class="feature-icon">💄</div>
+                <h3>Expertise Beauté</h3>
+                <p>Nos partenaires sont des professionnels reconnus dans l'industrie de la beauté et du bien-être.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🥂</div>
+                <h3>Gastronomie</h3>
+                <p>Menu soigneusement élaboré avec des options gourmandes adaptées à tous les goûts.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Networking</h3>
+                <p>Créez des connexions authentiques avec des femmes partageant les mêmes valeurs.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎁</div>
+                <h3>Cadeaux Exclusifs</h3>
+                <p>Repartez avec un goodie bag rempli de surprises de marques premium.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3>Moments Inoubliables</h3>
+                <p>Espaces photos magnifiquement décorés pour capturer vos meilleurs moments.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3>Inspiration</h3>
+                <p>Conférences et panels sur l'entrepreneuriat féminin et le développement personnel.</p>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <h2 class="section-title" style="margin-top: 4rem;">Nos Événements Atelier en Images</h2>
+        
+        <div class="gallery-grid" id="atelierGallery">
+            <!-- Gallery will be loaded dynamically -->
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Prêt(e) à Vivre L'Expérience ?</h2>
+            <p>
+                Réservez votre place pour notre prochain Beauty Brunch Atelier et découvrez 
+                une expérience unique dédiée aux femmes modernes et inspirantes.
+            </p>
+            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20réserver%20pour%20un%20Beauty%20Brunch%20Atelier" class="cta-button" target="_blank">
+                Réserver Ma Place sur WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Beauty Brunch Africa - Libreville, Gabon</p>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="luxe.html">Beauty Brunch Luxe</a>
+            <a href="corporate.html">Beauty Brunch Corporate</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Shrinking navigation
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Load gallery images
+        const atelierPhotos = [
+            '_OP_9461.JPG',
+            'DSC09674.JPG',
+            '_OP_9485.JPG',
+            '_OP_9453.JPG',
+            'DSC09465.JPG',
+            '_OP_9456.JPG',
+            'DSC09473.JPG',
+            '_OP_9430.JPG',
+            'BB_Affiche_Final___.jpeg'
+        ];
+
+        const galleryGrid = document.getElementById('atelierGallery');
+        atelierPhotos.forEach((photo, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = `
+                <img src="${photo}" alt="Beauty Brunch Atelier ${index + 1}" loading="lazy" onerror="this.parentElement.style.display='none'">
+            `;
+            galleryGrid.appendChild(item);
+        });
+    </script>
+</body>
+</html>
