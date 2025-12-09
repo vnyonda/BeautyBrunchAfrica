@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Brunch Ateliers - Expérience Conviviale</title>
+    <title>Beauty Brunch Ateliers - Expériences Conviviales</title>
     <meta name="description" content="Beauty Brunch Ateliers - Des événements conviviaux autour de la beauté, du bien-être et de l'épanouissement féminin.">
     
     <!-- Fonts -->
@@ -15,111 +15,21 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-        /* Fixed Header */
-        .fixed-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 2rem 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: padding 0.3s ease;
-        }
-
-        .fixed-header.scrolled {
-            padding: 0.8rem 1rem;
-        }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .header-logo-container {
-            display: inline-block;
-            position: relative;
-        }
-
-        .header-logo {
-            max-height: 120px;
-            width: auto;
-            display: block;
-            margin: 0 auto;
-            transition: max-height 0.3s ease;
-        }
-
-        .fixed-header.scrolled .header-logo {
-            max-height: 60px;
-        }
-
-        .header-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--bb-pink);
-            text-align: center;
-            margin-top: 0.3rem;
-            transition: font-size 0.3s ease;
-        }
-
-        .fixed-header.scrolled .header-subtitle {
-            font-size: 0.65rem;
-            margin-top: 0.2rem;
-        }
-
-        .header-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-            transition: margin-top 0.3s ease;
-        }
-
-        .fixed-header.scrolled .header-nav {
-            margin-top: 0.8rem;
-        }
-
-        .header-nav a {
-            color: var(--bb-pink);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-        }
-
-        .header-nav a:hover,
-        .header-nav a.active {
-            background: var(--bb-pink);
-            color: white;
-        }
-
-        /* Page Content */
-        .page-content {
+        .page-hero {
             padding-top: 12rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
+            padding-bottom: 3rem;
+            text-align: center;
         }
 
-        /* Gallery Section with Clickable Images */
-        .gallery-section {
-            margin: 3rem 0;
-        }
-
-        .gallery-grid {
+        /* Gallery at top - clickable images */
+        .top-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
+            margin: 3rem 0 4rem;
         }
 
-        .gallery-item {
+        .top-gallery-item {
             position: relative;
             aspect-ratio: 4/3;
             border-radius: 1rem;
@@ -129,154 +39,149 @@
             cursor: pointer;
         }
 
-        .gallery-item:hover {
+        .top-gallery-item:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 40px rgba(255, 29, 141, 0.25);
         }
 
-        .gallery-item img {
+        .top-gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s ease;
         }
 
-        .gallery-item:hover img {
+        .top-gallery-item:hover img {
             transform: scale(1.1);
         }
 
-        .gallery-overlay {
+        /* Instagram overlay */
+        .instagram-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(255, 29, 141, 0.7), transparent);
+            background: linear-gradient(to top, rgba(255, 29, 141, 0.8), transparent);
             opacity: 0;
             transition: opacity 0.4s ease;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
+            padding: 1.5rem;
         }
 
-        .gallery-item:hover .gallery-overlay {
+        .top-gallery-item:hover .instagram-overlay {
             opacity: 1;
         }
 
-        .overlay-icon {
+        .instagram-icon {
             color: white;
-            font-size: 3rem;
-        }
-
-        .info-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 30px rgba(255, 29, 141, 0.1);
-            margin: 2rem 0;
-            border-left: 5px solid var(--bb-pink);
-        }
-
-        .info-box h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--bb-pink);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .info-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .info-box ul li {
-            padding: 0.5rem 0;
-            padding-left: 2rem;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .info-box ul li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--bb-pink);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .price-tag {
-            background: linear-gradient(135deg, var(--bb-pink), #e01679);
-            color: white;
-            padding: 1.5rem 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .price-tag .price {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .header-logo {
-                max-height: 80px;
-            }
-
-            .fixed-header.scrolled .header-logo {
-                max-height: 50px;
-            }
-
-            .page-content {
-                padding-top: 10rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
+            font-size: 2rem;
         }
 
         @media (min-width: 1024px) {
-            .gallery-grid {
+            .top-gallery {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Header -->
-    <header class="fixed-header" id="fixedHeader">
-        <div class="header-content">
-            <div class="header-logo-container">
-                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="header-logo">
-                <p class="header-subtitle">Ateliers</p>
+    <!-- Navigation with Logo + "Ateliers" subtitle -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-with-subtitle">
+                <a href="index.html">
+                    <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="nav-logo-img">
+                </a>
+                <span class="nav-logo-subtitle">Ateliers</span>
             </div>
-            <nav class="header-nav">
-                <a href="index.html">Accueil</a>
-                <a href="ateliers.html" class="active">Ateliers</a>
-                <a href="luxe.html">Luxe</a>
-                <a href="x.html">Beauty Brunch X</a>
-            </nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="ateliers.html" class="active">Ateliers</a></li>
+                <li><a href="luxe.html">Luxe</a></li>
+                <li><a href="corporate.html">Beauty Brunch X</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <!-- Page Content -->
-    <div class="page-content">
-        <!-- Gallery Section (Clickable to Instagram) -->
-        <section class="gallery-section">
-            <div class="gallery-grid" id="ateliersGallery">
-                <!-- Gallery items will be loaded dynamically -->
+    <!-- Hero Section with Images at Top -->
+    <section class="hero">
+        <div class="blob-container">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="blob blob3"></div>
+        </div>
+
+        <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
+            
+            <!-- Gallery of Images (Clickable to Instagram) -->
+            <div class="top-gallery">
+                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="_OP_9461.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <div class="instagram-overlay">
+                        <span class="instagram-icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="DSC09674.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <div class="instagram-overlay">
+                        <span class="instagram-icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="_OP_9485.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <div class="instagram-overlay">
+                        <span class="instagram-icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="_OP_9453.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <div class="instagram-overlay">
+                        <span class="instagram-icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="DSC09465.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <div class="instagram-overlay">
+                        <span class="instagram-icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="_OP_9456.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <div class="instagram-overlay">
+                        <span class="instagram-icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="DSC09473.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <div class="instagram-overlay">
+                        <span class="instagram-icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="_OP_9430.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <div class="instagram-overlay">
+                        <span class="instagram-icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <div class="instagram-overlay">
+                        <span class="instagram-icon">📷</span>
+                    </div>
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section Subtitle -->
-        <div class="section-subtitle" style="margin-top: 3rem;">
-            Notre concept original : des événements conviviaux autour de la beauté, du bien-être 
-            et de l'épanouissement féminin.
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="section-subtitle" style="animation: fadeInUp 1s ease-out 0.3s backwards;">
+            Notre concept fondateur où la beauté rencontre le bien-être dans une atmosphère chaleureuse 
+            et authentique. Un moment privilégié entre femmes pour se ressourcer, apprendre et créer des liens.
         </div>
 
         <!-- Ce qui est inclus -->
-        <div class="info-box">
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
             <h3>✨ Ce qui est inclus</h3>
             <ul>
                 <li><strong>Brunch Gourmand</strong> : Buffet varié avec options salées et sucrées, boissons chaudes et fraîches</li>
@@ -289,7 +194,7 @@
         </div>
 
         <!-- Format -->
-        <div class="info-box">
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.5s backwards;">
             <h3>📋 Format de l'événement</h3>
             <ul>
                 <li><strong>Durée</strong> : 3 à 4 heures</li>
@@ -300,13 +205,13 @@
         </div>
 
         <!-- Tarifs -->
-        <div class="price-tag">
+        <div class="price-tag" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
             <div class="price">15 000 - 25 000 FCFA</div>
             <div class="price-note">Par personne · Selon les prestations choisies</div>
         </div>
 
         <!-- Thématiques -->
-        <div class="info-box">
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.7s backwards;">
             <h3>🎨 Thématiques populaires</h3>
             <ul>
                 <li>Glow Up : Sublimer sa beauté naturelle</li>
@@ -318,11 +223,11 @@
         </div>
 
         <!-- Features Grid -->
-        <h2 class="section-title" style="margin-top: 4rem;">
+        <h2 class="section-title" style="margin-top: 4rem; animation: fadeInUp 1s ease-out 0.8s backwards;">
             Pourquoi choisir Beauty Brunch Ateliers ?
         </h2>
 
-        <div class="features-grid">
+        <div class="features-grid" style="animation: fadeInUp 1s ease-out 0.9s backwards;">
             <div class="feature-card">
                 <div class="feature-icon">💄</div>
                 <h3>Expertise Beauté</h3>
@@ -362,16 +267,15 @@
 
         <!-- CTA -->
         <div class="cta-section">
-            <h2>Renseignez-vous et réservez votre place</h2>
+            <h2>Renseignez-vous et réservez votre place pour notre prochain Beauty Brunch</h2>
             <p>
-                Rejoignez-nous lors de notre prochain Beauty Brunch Ateliers et découvrez 
-                une expérience unique dédiée aux femmes modernes et inspirantes.
+                Rejoignez-nous et vivez une expérience unique dédiée aux femmes modernes et inspirantes.
             </p>
             <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20réserver%20pour%20un%20Beauty%20Brunch%20Ateliers" class="cta-button" target="_blank">
                 Réserver Ma Place Via WhatsApp
             </a>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -379,53 +283,20 @@
         <div class="footer-links">
             <a href="index.html">Accueil</a>
             <a href="luxe.html">Beauty Brunch Luxe</a>
-            <a href="x.html">Beauty Brunch X</a>
+            <a href="corporate.html">Beauty Brunch X</a>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Shrinking header
-        const fixedHeader = document.getElementById('fixedHeader');
+        // Shrinking navigation
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
-                fixedHeader.classList.add('scrolled');
+                navbar.classList.add('scrolled');
             } else {
-                fixedHeader.classList.remove('scrolled');
+                navbar.classList.remove('scrolled');
             }
-        });
-
-        // Gallery with clickable images
-        const instagramUrl = 'https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==';
-        
-        const ateliersPhotos = [
-            '_OP_9461.JPG',
-            'DSC09674.JPG',
-            '_OP_9485.JPG',
-            '_OP_9453.JPG',
-            'DSC09465.JPG',
-            '_OP_9456.JPG',
-            'DSC09473.JPG',
-            '_OP_9430.JPG',
-            'BB_Affiche_Final___.jpeg'
-        ];
-
-        const galleryGrid = document.getElementById('ateliersGallery');
-        ateliersPhotos.forEach((photo, index) => {
-            const item = document.createElement('a');
-            item.href = instagramUrl;
-            item.target = '_blank';
-            item.rel = 'noopener noreferrer';
-            item.className = 'gallery-item';
-            
-            item.innerHTML = `
-                <img src="${photo}" alt="Beauty Brunch Ateliers ${index + 1}" loading="lazy" onerror="this.parentElement.style.display='none'">
-                <div class="gallery-overlay">
-                    <span class="overlay-icon">📷</span>
-                </div>
-            `;
-            
-            galleryGrid.appendChild(item);
         });
     </script>
 </body>
