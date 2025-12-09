@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Brunch Luxe - Expérience Premium Exclusive</title>
+    <meta name="description" content="Beauty Brunch Luxe - Des expériences premium exclusives avec prestations VIP et services haut de gamme.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Montserrat:wght@900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .page-header {
+            text-align: center;
+            padding: 10rem 2rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--bb-pink);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-subtitle {
+            font-size: 1.5rem;
+            color: #374151;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 29, 141, 0.1);
+            margin: 2rem 0;
+            border-left: 5px solid var(--bb-pink);
+        }
+
+        .info-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--bb-pink);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box ul li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .info-box ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--bb-pink);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, var(--bb-pink), #e01679);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .price-tag .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-tag .price-note {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .luxury-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html">
+                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="nav-logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="atelier.html">Atelier</a></li>
+                <li><a href="luxe.html" class="active">Luxe</a></li>
+                <li><a href="corporate.html">Corporate</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="blob-container">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="blob blob3"></div>
+        </div>
+
+        <div class="page-header">
+            <span class="luxury-badge">⭐ EXPÉRIENCE PREMIUM ⭐</span>
+            <h1 class="page-title">Beauty Brunch Luxe</h1>
+            <p class="page-subtitle">L'excellence au service de votre expérience</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="section-subtitle" style="animation: fadeInUp 1s ease-out 0.3s backwards;">
+            Beauty Brunch Luxe élève l'expérience à un niveau supérieur avec des prestations VIP, 
+            des lieux d'exception et un service personnalisé. Pour celles qui recherchent l'excellence 
+            et l'exclusivité.
+        </div>
+
+        <!-- Ce qui est inclus -->
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
+            <h3>✨ Ce qui est inclus</h3>
+            <ul>
+                <li><strong>Chef Privé</strong> : Menu gastronomique sur mesure préparé par un chef étoilé</li>
+                <li><strong>Prestations Beauté VIP</strong> : Maquillage professionnel, coiffure, manucure, soins spa personnalisés</li>
+                <li><strong>Lieu Exclusif</strong> : Villa privée, hôtel 5 étoiles ou espace d'exception</li>
+                <li><strong>Entertainment Premium</strong> : DJ/musicien live, performances artistiques</li>
+                <li><strong>Shopping Privé</strong> : Accès exclusif à des collections de marques de luxe</li>
+                <li><strong>Conciergerie VIP</strong> : Service dédié avant, pendant et après l'événement</li>
+                <li><strong>Goodie Bag Luxe</strong> : Produits premium et exclusifs de grandes marques</li>
+                <li><strong>Photographie Professionnelle</strong> : Photographe dédié + shooting individuel</li>
+            </ul>
+        </div>
+
+        <!-- Format -->
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.5s backwards;">
+            <h3>📋 Format de l'événement</h3>
+            <ul>
+                <li><strong>Durée</strong> : 4 à 6 heures</li>
+                <li><strong>Nombre de participantes</strong> : 15 à 30 personnes (places limitées)</li>
+                <li><strong>Ambiance</strong> : Luxueuse, raffinée et exclusive</li>
+                <li><strong>Public cible</strong> : Femmes VIP, dirigeantes d'entreprise, personnalités influentes</li>
+            </ul>
+        </div>
+
+        <!-- Tarifs -->
+        <div class="price-tag" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
+            <div class="price">50 000 - 100 000 FCFA</div>
+            <div class="price-note">Par personne · Prestations premium incluses</div>
+        </div>
+
+        <!-- Services Exclusifs -->
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.7s backwards;">
+            <h3>👑 Services exclusifs</h3>
+            <ul>
+                <li>Accueil champagne et canapés</li>
+                <li>Service de voiturier</li>
+                <li>Espace lounge privé</li>
+                <li>Bar à cocktails premium</li>
+                <li>Décoration sur mesure</li>
+                <li>Gifts personnalisés pour chaque invitée</li>
+            </ul>
+        </div>
+
+        <!-- Features Grid -->
+        <h2 class="section-title" style="margin-top: 4rem; animation: fadeInUp 1s ease-out 0.8s backwards;">
+            L'Expérience Luxe en Détails
+        </h2>
+
+        <div class="features-grid" style="animation: fadeInUp 1s ease-out 0.9s backwards;">
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🍳</div>
+                <h3>Gastronomie d'Exception</h3>
+                <p>Menu dégustation créé par des chefs renommés, avec vins et champagnes sélectionnés.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💎</div>
+                <h3>Beauté Premium</h3>
+                <p>Prestations par les meilleurs professionnels avec produits de luxe internationaux.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏰</div>
+                <h3>Lieux d'Exception</h3>
+                <p>Villas somptueuses, rooftops exclusifs, et espaces privés à couper le souffle.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎭</div>
+                <h3>Entertainment Premium</h3>
+                <p>Performances live, DJ sets exclusifs et animations sophistiquées.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🛍️</div>
+                <h3>Shopping Privé</h3>
+                <p>Accès privilégié à des collections exclusives et personal shopping.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h3>Service Sur Mesure</h3>
+                <p>Conciergerie dédiée pour répondre à toutes vos demandes personnalisées.</p>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <h2 class="section-title" style="margin-top: 4rem;">Nos Événements Luxe en Images</h2>
+        
+        <div class="gallery-grid" id="luxeGallery">
+            <!-- Gallery will be loaded dynamically -->
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Rejoignez l'Élite</h2>
+            <p>
+                Vivez une expérience premium exceptionnelle lors de notre prochain Beauty Brunch Luxe. 
+                Places très limitées. Réservation sur sélection.
+            </p>
+            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20réserver%20pour%20un%20Beauty%20Brunch%20Luxe" class="cta-button" target="_blank">
+                Demander Une Invitation VIP
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Beauty Brunch Africa - Libreville, Gabon</p>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="atelier.html">Beauty Brunch Atelier</a>
+            <a href="corporate.html">Beauty Brunch Corporate</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Shrinking navigation
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Load gallery images
+        const luxePhotos = [
+            'Beauty_Brunch_2021.jpg',
+            'Beauty_Brunch_2022.jpg',
+            'DSC09641.JPG',
+            'DSC09771.JPG',
+            'DSC09465.JPG',
+            'DSC09473.JPG'
+        ];
+
+        const galleryGrid = document.getElementById('luxeGallery');
+        luxePhotos.forEach((photo, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = `
+                <img src="${photo}" alt="Beauty Brunch Luxe ${index + 1}" loading="lazy" onerror="this.parentElement.style.display='none'">
+            `;
+            galleryGrid.appendChild(item);
+        });
+    </script>
+</body>
+</html>
