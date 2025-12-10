@@ -24,35 +24,74 @@
         /* Top Images Gallery */
         .top-images-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin: 3rem 0 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .top-image-item {
             position: relative;
-            aspect-ratio: 4/3;
             border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(8, 102, 255, 0.15);
             transition: all 0.4s ease;
-            cursor: pointer;
+            background: #f3f4f6;
         }
 
         .top-image-item:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(8, 102, 255, 0.25);
         }
 
         .top-image-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
             transition: transform 0.4s ease;
         }
 
         .top-image-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
+        }
+
+        /* Image overlay with action button */
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(8, 102, 255, 0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .top-image-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .overlay-button {
+            background: white;
+            color: #0866FF;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .overlay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Lightbox for full-screen images */
@@ -89,11 +128,18 @@
             background: none;
             border: none;
             padding: 0.5rem 1rem;
+            line-height: 1;
         }
 
         @media (min-width: 768px) {
             .top-images-gallery {
                 grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .top-images-gallery {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -128,11 +174,24 @@
         <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
             <!-- Top Images Gallery -->
             <div class="top-images-gallery">
-                <div class="top-image-item" onclick="openLightbox('439a13af-a0c7-42e0-b805-e8f674253c8c.JPG')">
+                <!-- Image 1 -->
+                <div class="top-image-item">
                     <img src="439a13af-a0c7-42e0-b805-e8f674253c8c.JPG" alt="Beauty Brunch X" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="overlay-button" onclick="openLightbox(event, '439a13af-a0c7-42e0-b805-e8f674253c8c.JPG')">
+                            🔍 Voir en grand
+                        </button>
+                    </div>
                 </div>
-                <div class="top-image-item" onclick="openLightbox('PHOTO-2025-12-08-13-42-27.jpg')">
+
+                <!-- Image 2 -->
+                <div class="top-image-item">
                     <img src="PHOTO-2025-12-08-13-42-27.jpg" alt="Beauty Brunch X" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="overlay-button" onclick="openLightbox(event, 'PHOTO-2025-12-08-13-42-27.jpg')">
+                            🔍 Voir en grand
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -258,7 +317,8 @@
         });
 
         // Lightbox functions
-        function openLightbox(imageSrc) {
+        function openLightbox(event, imageSrc) {
+            event.stopPropagation(); // Prevent any parent clicks
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = imageSrc;
