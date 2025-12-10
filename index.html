@@ -69,6 +69,7 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
+            object-position: top center;
         }
 
         .concept-content {
@@ -79,8 +80,20 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
             font-weight: 900;
-            color: var(--bb-pink);
             margin-bottom: 1rem;
+        }
+
+        /* Color coding for concepts */
+        .concept-ateliers .concept-title {
+            color: var(--bb-pink);
+        }
+
+        .concept-luxe .concept-title {
+            color: #FFD700;
+        }
+
+        .concept-x .concept-title {
+            color: #0866FF;
         }
 
         .concept-description {
@@ -92,16 +105,37 @@
 
         .concept-cta {
             display: inline-block;
-            background: var(--bb-pink);
-            color: white;
             padding: 0.8rem 2rem;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s;
+            color: white;
         }
 
-        .concept-cta:hover {
+        .concept-ateliers .concept-cta {
+            background: var(--bb-pink);
+        }
+
+        .concept-ateliers .concept-cta:hover {
             background: #e01679;
+            transform: translateX(5px);
+        }
+
+        .concept-luxe .concept-cta {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .concept-luxe .concept-cta:hover {
+            background: linear-gradient(135deg, #FFA500, #FF8C00);
+            transform: translateX(5px);
+        }
+
+        .concept-x .concept-cta {
+            background: #0866FF;
+        }
+
+        .concept-x .concept-cta:hover {
+            background: #0654d4;
             transform: translateX(5px);
         }
 
@@ -167,7 +201,7 @@
             <!-- Concepts Grid -->
             <div class="concepts-grid">
                 <!-- Beauty Brunch Ateliers -->
-                <a href="ateliers.html" class="concept-card">
+                <a href="ateliers.html" class="concept-card concept-ateliers">
                     <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Ateliers" class="concept-image">
                     <div class="concept-content">
                         <h3 class="concept-title">Beauty Brunch Ateliers</h3>
@@ -180,7 +214,7 @@
                 </a>
 
                 <!-- Beauty Brunch Luxe -->
-                <a href="luxe.html" class="concept-card">
+                <a href="luxe.html" class="concept-card concept-luxe">
                     <img src="Beauty_Brunch_2021.jpg" alt="Beauty Brunch Luxe" class="concept-image">
                     <div class="concept-content">
                         <h3 class="concept-title">Beauty Brunch Luxe</h3>
@@ -192,8 +226,8 @@
                 </a>
 
                 <!-- Beauty Brunch X -->
-                <a href="corporate.html" class="concept-card">
-                    <img src="Beauty_Brunch_2022.jpg" alt="Beauty Brunch X" class="concept-image">
+                <a href="corporate.html" class="concept-card concept-x">
+                    <img src="439a13af-a0c7-42e0-b805-e8f674253c8c.JPG" alt="Beauty Brunch X" class="concept-image">
                     <div class="concept-content">
                         <h3 class="concept-title">Beauty Brunch X</h3>
                         <p class="concept-description">
