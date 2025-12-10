@@ -21,10 +21,10 @@
             text-align: center;
         }
 
-        /* Gallery at top */
+        /* Gallery at top - Masonry style */
         .top-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             margin: 3rem 0 4rem;
         }
@@ -45,7 +45,8 @@
 
         .top-gallery-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
             transition: transform 0.4s ease;
         }
@@ -92,6 +93,11 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        /* Horizontal images span 2 columns */
+        .top-gallery-item.horizontal {
+            grid-column: span 2;
+        }
+
         /* Lightbox for full-screen images */
         .lightbox {
             display: none;
@@ -129,9 +135,13 @@
             line-height: 1;
         }
 
-        @media (min-width: 1024px) {
+        @media (max-width: 768px) {
             .top-gallery {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: 1fr;
+            }
+            
+            .top-gallery-item.horizontal {
+                grid-column: span 1;
             }
         }
     </style>
@@ -167,7 +177,7 @@
             
             <!-- Gallery of Images (with dual functionality) -->
             <div class="top-gallery">
-                <!-- Image 1 -->
+                <!-- Image 1 - Vertical -->
                 <div class="top-gallery-item">
                     <img src="OP9461.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -180,8 +190,8 @@
                     </div>
                 </div>
 
-                <!-- Image 2 -->
-                <div class="top-gallery-item">
+                <!-- Image 2 - Horizontal -->
+                <div class="top-gallery-item horizontal">
                     <img src="DSC09674.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
@@ -193,7 +203,7 @@
                     </div>
                 </div>
 
-                <!-- Image 3 -->
+                <!-- Image 3 - Vertical -->
                 <div class="top-gallery-item">
                     <img src="OP9485.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -206,7 +216,7 @@
                     </div>
                 </div>
 
-                <!-- Image 4 -->
+                <!-- Image 4 - Vertical -->
                 <div class="top-gallery-item">
                     <img src="OP9453.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -219,8 +229,8 @@
                     </div>
                 </div>
 
-                <!-- Image 5 -->
-                <div class="top-gallery-item">
+                <!-- Image 5 - Horizontal -->
+                <div class="top-gallery-item horizontal">
                     <img src="DSC09465.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
@@ -232,7 +242,7 @@
                     </div>
                 </div>
 
-                <!-- Image 6 -->
+                <!-- Image 6 - Vertical -->
                 <div class="top-gallery-item">
                     <img src="OP9456.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -245,8 +255,8 @@
                     </div>
                 </div>
 
-                <!-- Image 7 -->
-                <div class="top-gallery-item">
+                <!-- Image 7 - Horizontal -->
+                <div class="top-gallery-item horizontal">
                     <img src="DSC09473.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
@@ -258,8 +268,8 @@
                     </div>
                 </div>
 
-                <!-- Image 8 - Special TikTok link -->
-                <div class="top-gallery-item">
+                <!-- Image 8 - Horizontal - Special TikTok link -->
+                <div class="top-gallery-item horizontal">
                     <img src="DSC09771.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://vm.tiktok.com/ZNRJ7L2bS/', '_blank')">
@@ -271,7 +281,7 @@
                     </div>
                 </div>
 
-                <!-- Image 9 -->
+                <!-- Image 9 - Vertical -->
                 <div class="top-gallery-item">
                     <img src="OP9430.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -284,7 +294,7 @@
                     </div>
                 </div>
 
-                <!-- Image 10 - Facebook link -->
+                <!-- Image 10 - Vertical - Facebook link -->
                 <div class="top-gallery-item">
                     <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -292,6 +302,32 @@
                             🔗 Voir le post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'BB_Affiche_Final___.jpeg')">
+                            🔍 Agrandir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image 11 - NEW - Beauty Brunch 2021 -->
+                <div class="top-gallery-item">
+                    <img src="Beauty_Brunch_2021.jpg" alt="Beauty Brunch 2021" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
+                            🔗 Voir le post
+                        </button>
+                        <button class="overlay-button" onclick="openLightbox(event, 'Beauty_Brunch_2021.jpg')">
+                            🔍 Agrandir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image 12 - NEW - Beauty Brunch 2022 -->
+                <div class="top-gallery-item">
+                    <img src="Beauty_Brunch_2022.jpg" alt="Beauty Brunch 2022" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
+                            🔗 Voir le post
+                        </button>
+                        <button class="overlay-button" onclick="openLightbox(event, 'Beauty_Brunch_2022.jpg')">
                             🔍 Agrandir
                         </button>
                     </div>
