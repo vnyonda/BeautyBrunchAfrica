@@ -37,6 +37,7 @@
             box-shadow: 0 10px 30px rgba(255, 29, 141, 0.15);
             transition: all 0.4s ease;
             cursor: pointer;
+            display: block;
         }
 
         .top-gallery-item:hover {
@@ -77,6 +78,42 @@
             font-size: 2rem;
         }
 
+        /* Lightbox for full-screen images */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+        }
+
         @media (min-width: 1024px) {
             .top-gallery {
                 grid-template-columns: repeat(3, 1fr);
@@ -113,58 +150,58 @@
 
         <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
             
-            <!-- Gallery of Images (Clickable to Instagram) -->
+            <!-- Gallery of Images (Clickable to Instagram/Full Screen) -->
             <div class="top-gallery">
                 <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
-                    <img src="_OP_9461.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <img src="_OP_9461.JPG" alt="Beauty Brunch Ateliers" loading="lazy" onclick="openLightbox(event, '_OP_9461.JPG')">
                     <div class="instagram-overlay">
                         <span class="instagram-icon">📷</span>
                     </div>
                 </a>
                 <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
-                    <img src="DSC09674.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <img src="DSC09674.JPG" alt="Beauty Brunch Ateliers" loading="lazy" onclick="openLightbox(event, 'DSC09674.JPG')">
                     <div class="instagram-overlay">
                         <span class="instagram-icon">📷</span>
                     </div>
                 </a>
                 <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
-                    <img src="_OP_9485.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <img src="_OP_9485.JPG" alt="Beauty Brunch Ateliers" loading="lazy" onclick="openLightbox(event, '_OP_9485.JPG')">
                     <div class="instagram-overlay">
                         <span class="instagram-icon">📷</span>
                     </div>
                 </a>
                 <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
-                    <img src="_OP_9453.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <img src="_OP_9453.JPG" alt="Beauty Brunch Ateliers" loading="lazy" onclick="openLightbox(event, '_OP_9453.JPG')">
                     <div class="instagram-overlay">
                         <span class="instagram-icon">📷</span>
                     </div>
                 </a>
                 <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
-                    <img src="DSC09465.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <img src="DSC09465.JPG" alt="Beauty Brunch Ateliers" loading="lazy" onclick="openLightbox(event, 'DSC09465.JPG')">
                     <div class="instagram-overlay">
                         <span class="instagram-icon">📷</span>
                     </div>
                 </a>
                 <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
-                    <img src="_OP_9456.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <img src="_OP_9456.JPG" alt="Beauty Brunch Ateliers" loading="lazy" onclick="openLightbox(event, '_OP_9456.JPG')">
                     <div class="instagram-overlay">
                         <span class="instagram-icon">📷</span>
                     </div>
                 </a>
                 <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
-                    <img src="DSC09473.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <img src="DSC09473.JPG" alt="Beauty Brunch Ateliers" loading="lazy" onclick="openLightbox(event, 'DSC09473.JPG')">
                     <div class="instagram-overlay">
                         <span class="instagram-icon">📷</span>
                     </div>
                 </a>
                 <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
-                    <img src="_OP_9430.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
+                    <img src="_OP_9430.JPG" alt="Beauty Brunch Ateliers" loading="lazy" onclick="openLightbox(event, '_OP_9430.JPG')">
                     <div class="instagram-overlay">
                         <span class="instagram-icon">📷</span>
                     </div>
                 </a>
-                <a href="https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
-                    <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Ateliers" loading="lazy">
+                <a href="https://www.facebook.com/profile.php?id=1000756380911953" target="_blank" rel="noopener noreferrer" class="top-gallery-item">
+                    <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Ateliers" loading="lazy" onclick="openLightbox(event, 'BB_Affiche_Final___.jpeg')">
                     <div class="instagram-overlay">
                         <span class="instagram-icon">📷</span>
                     </div>
@@ -287,6 +324,12 @@
         </div>
     </footer>
 
+    <!-- Lightbox for full-screen images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="Full screen image">
+    </div>
+
     <!-- Scripts -->
     <script>
         // Shrinking navigation
@@ -296,6 +339,28 @@
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Lightbox functions
+        function openLightbox(event, imageSrc) {
+            event.preventDefault();
+            event.stopPropagation();
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
             }
         });
     </script>
