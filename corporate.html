@@ -20,6 +20,82 @@
             padding-bottom: 3rem;
             text-align: center;
         }
+
+        /* Top Images Gallery */
+        .top-images-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0 4rem;
+        }
+
+        .top-image-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(8, 102, 255, 0.15);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .top-image-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(8, 102, 255, 0.25);
+        }
+
+        .top-image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .top-image-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox for full-screen images */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .top-images-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -49,7 +125,16 @@
             <div class="blob blob3"></div>
         </div>
 
-        <div class="page-hero" style="position: relative; z-index: 10;">
+        <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
+            <!-- Top Images Gallery -->
+            <div class="top-images-gallery">
+                <div class="top-image-item" onclick="openLightbox('439a13af-a0c7-42e0-b805-e8f674253c8c.JPG')">
+                    <img src="439a13af-a0c7-42e0-b805-e8f674253c8c.JPG" alt="Beauty Brunch X" loading="lazy">
+                </div>
+                <div class="top-image-item" onclick="openLightbox('PHOTO-2025-12-08-13-42-27.jpg')">
+                    <img src="PHOTO-2025-12-08-13-42-27.jpg" alt="Beauty Brunch X" loading="lazy">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -118,49 +203,6 @@
             </ul>
         </div>
 
-        <!-- Features Grid -->
-        <h2 class="section-title" style="margin-top: 4rem; animation: fadeInUp 1s ease-out 0.9s backwards;">
-            Pourquoi choisir Beauty Brunch X ?
-        </h2>
-
-        <div class="features-grid" style="animation: fadeInUp 1s ease-out 1s backwards;">
-            <div class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h3>Approche Personnalisée</h3>
-                <p>Chaque événement est conçu sur mesure pour répondre à vos objectifs spécifiques.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Expertise Événementielle</h3>
-                <p>Plus de 5 ans d'expérience dans l'organisation d'événements corporate réussis.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🏆</div>
-                <h3>Qualité Premium</h3>
-                <p>Partenaires sélectionnés et prestations de haute qualité garanties.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">💡</div>
-                <h3>Concepts Innovants</h3>
-                <p>Des idées créatives et originales qui marquent les esprits.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Gestion Complète</h3>
-                <p>De la conception au debriefing, nous gérons tous les aspects de votre événement.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">⏰</div>
-                <h3>Respect des Délais</h3>
-                <p>Organisation rigoureuse et respect des engagements pris.</p>
-            </div>
-        </div>
-
         <!-- Clients & Témoignages -->
         <h2 class="section-title" style="margin-top: 4rem;">Ils nous ont fait confiance</h2>
         
@@ -197,6 +239,12 @@
         </div>
     </footer>
 
+    <!-- Lightbox for full-screen images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="Full screen image">
+    </div>
+
     <!-- Scripts -->
     <script>
         // Shrinking navigation
@@ -206,6 +254,26 @@
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Lightbox functions
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
             }
         });
     </script>
