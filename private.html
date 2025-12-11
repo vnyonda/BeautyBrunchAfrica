@@ -21,6 +21,29 @@
             text-align: center;
         }
 
+        /* Page-specific logo with subtitle */
+        .page-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-logo {
+            max-width: 300px;
+            width: 100%;
+            margin-bottom: 0.3rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #764ba2;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
         /* Corporate badge */
         .corporate-badge {
             display: inline-block;
@@ -32,17 +55,26 @@
             margin-bottom: 1rem;
             font-size: 0.9rem;
         }
+
+        @media (max-width: 640px) {
+            .page-logo {
+                max-width: 200px;
+            }
+
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo-with-subtitle">
+            <div class="nav-logo-container">
                 <a href="index.html">
                     <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="nav-logo-img">
                 </a>
-                <span class="nav-logo-subtitle">Privé</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Accueil</a></li>
@@ -63,6 +95,12 @@
         </div>
 
         <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
+            <!-- Logo with "Privé" subtitle centered under "Brunch" -->
+            <div class="page-logo-container">
+                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="page-logo">
+                <span class="page-subtitle">Privé</span>
+            </div>
+
             <span class="corporate-badge">🏢 Solutions Professionnelles</span>
             <h1 class="hero-title" style="animation: fadeInUp 1s ease-out backwards;">
                 Beauty Brunch Privé
@@ -87,7 +125,7 @@
                 <li><strong>Entreprises privées</strong> : PME, grandes entreprises, start-ups</li>
                 <li><strong>ONG & Associations</strong> : Organisations à but non lucratif, associations caritatives</li>
                 <li><strong>Institutions gouvernementales</strong> : Ministères, agences publiques, collectivités</li>
-                <li><strong>Organisations internationales</strong> : Ambassades, institutions multilatérales</li>
+                <li><strong>Organisations internationales</strong> : Ambassades, Nations Unies, institutions multilatérales, agences de coopération</li>
                 <li><strong>Fondations</strong> : Fondations d'entreprises et philanthropiques</li>
             </ul>
         </div>
@@ -99,13 +137,14 @@
                 <li><strong>Team Building Corporate</strong> : Activités de cohésion mêlant bien-être et créativité pour entreprises</li>
                 <li><strong>Séminaires d'Entreprise</strong> : Journées de travail collaborative avec moments de détente</li>
                 <li><strong>Événements RH</strong> : Journée de la Femme, wellness days, programmes de reconnaissance</li>
-                <li><strong>Célébrations d'Entreprise</strong> : Anniversaires d'entreprise, lancements de produits, fêtes de fin d'année</li>
+                <li><strong>Journée Internationale de la Femme</strong> : Célébrations du 8 mars avec panels, ateliers et moments de célébration</li>
+                <li><strong>Mois de la Femme</strong> : Programmes événementiels sur tout le mois de mars autour de l'autonomisation féminine</li>
                 <li><strong>Événements ONG</strong> : Galas caritatifs, célébrations de causes, réseautage pour associations</li>
                 <li><strong>Événements Institutionnels</strong> : Journées officielles, célébrations gouvernementales, protocole adapté</li>
                 <li><strong>Networking Professionnel</strong> : Soirées réseautage dans une ambiance décontractée</li>
                 <li><strong>Incentive & Récompenses</strong> : Événements pour motiver et récompenser vos équipes</li>
                 <li><strong>Formations bien-être</strong> : Ateliers sur l'équilibre vie pro/vie perso</li>
-                <li><strong>Conférences & Panels</strong> : Discussions sur le leadership féminin, l'entrepreneuriat, et l'empowerment</li>
+                <li><strong>Conférences & Panels</strong> : Discussions sur le leadership féminin, l'entrepreneuriat, et l'autonomisation</li>
             </ul>
         </div>
 
@@ -114,13 +153,12 @@
             <h3>Prestations incluses</h3>
             <ul>
                 <li><strong>Conception sur mesure</strong> : Événement adapté à vos objectifs et votre culture organisationnelle</li>
-                <li><strong>Restauration professionnelle</strong> : Buffet, cocktail ou repas assis selon vos besoins</li>
                 <li><strong>Ateliers & Animations</strong> : Activités beauté, bien-être, team building personnalisées</li>
-                <li><strong>Gestion complète</strong> : De la planification à l'exécution, nous gérons tout</li>
+                <li><strong>Gestion complète</strong> : De la planification à l'exécution</li>
                 <li><strong>Branding personnalisé</strong> : Intégration de votre identité visuelle dans la décoration</li>
                 <li><strong>Cadeaux d'entreprise</strong> : Goodie bags personnalisés aux couleurs de votre organisation</li>
                 <li><strong>Documentation</strong> : Photos et vidéos professionnelles de l'événement</li>
-                <li><strong>Support logistique</strong> : Sonorisation, éclairage, mobilier</li>
+                <li><strong>Connexions prestataires</strong> : Nous vous mettons en relation avec les bons prestataires offrant des tarifs compétitifs pour tous vos besoins additionnels (traiteur, sono, mobilier, etc.)</li>
             </ul>
         </div>
 
