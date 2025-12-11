@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Brunch X - Événements Privés Sur Mesure</title>
-    <meta name="description" content="Beauty Brunch X - Créez votre événement beauté personnalisé pour toutes vos célébrations spéciales.">
+    <title>Beauty Brunch X - Collaborations de Marque Sur Mesure</title>
+    <meta name="description" content="Beauty Brunch X - Collaborations de marque et événements sur mesure pour mettre votre marque en valeur.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,6 +82,42 @@
             font-size: 1rem;
             opacity: 0.95;
         }
+
+        /* Stats highlight box */
+        .stats-box {
+            background: linear-gradient(135deg, #0866FF 0%, #0654d4 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stats-box h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
     </style>
 </head>
 <body>
@@ -113,12 +149,12 @@
         </div>
 
         <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
-            <span class="event-badge">🎉 Événements Sur Mesure</span>
+            <span class="event-badge">🎉 Collaborations de Marque</span>
             <h1 class="hero-title" style="animation: fadeInUp 1s ease-out backwards;">
                 Beauty Brunch X
             </h1>
             <p class="hero-subtitle" style="animation: fadeInUp 1s ease-out 0.2s backwards;">
-                Votre célébration, Notre création · Des événements privés entièrement personnalisés
+                Votre marque, Notre expertise · Des expériences qui plongent vos clientes dans votre univers
             </p>
 
             <!-- Event Images -->
@@ -126,15 +162,15 @@
                 <div class="event-image-card">
                     <img src="439a13af-a0c7-42e0-b805-e8f674253c8c.JPG" alt="Beauty Brunch X Event">
                     <div class="event-image-overlay">
-                        <div class="event-image-title">Célébrations Privées</div>
-                        <div class="event-image-desc">Des moments uniques créés pour vous</div>
+                        <div class="event-image-title">Brand Activations</div>
+                        <div class="event-image-desc">Des expériences immersives pour votre marque</div>
                     </div>
                 </div>
                 <div class="event-image-card">
                     <img src="d2f7b37e-9487-4154-86b1-1c4a7c0c8e2a.JPG" alt="Beauty Brunch X Event">
                     <div class="event-image-overlay">
-                        <div class="event-image-title">Expériences Sur Mesure</div>
-                        <div class="event-image-desc">Chaque détail pensé pour votre occasion spéciale</div>
+                        <div class="event-image-title">Événements Co-Brandés</div>
+                        <div class="event-image-desc">Co-création d'expériences premium</div>
                     </div>
                 </div>
             </div>
@@ -144,65 +180,93 @@
     <!-- Content Section -->
     <section class="content-section">
         <div class="section-subtitle" style="animation: fadeInUp 1s ease-out 0.3s backwards;">
-            Beauty Brunch X transforme vos célébrations en expériences mémorables. Que ce soit pour un anniversaire, 
-            un baby shower, un EVJF ou toute autre occasion spéciale, nous créons l'événement beauté de vos rêves.
+            Beauty Brunch X crée des expériences sur mesure qui mettent votre marque en valeur et plongent vos clientes 
+            dans votre univers. De l'activation de produit au lancement exclusif, nous transformons vos objectifs marketing 
+            en moments mémorables.
         </div>
 
-        <!-- Types d'événements -->
+        <!-- Types de Collaborations -->
         <div class="info-box" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
-            <h3>Types d'événements privés</h3>
+            <h3>Types de Collaborations de Marque</h3>
             <ul>
-                <li><strong>Anniversaires</strong> : Célébrez votre journée spéciale avec style et élégance</li>
-                <li><strong>Baby Showers</strong> : Accueillez bébé dans une atmosphère de douceur et de beauté</li>
-                <li><strong>EVJF (Enterrement de Vie de Jeune Fille)</strong> : La fête parfaite avant le grand jour</li>
-                <li><strong>Fêtes entre Amies</strong> : Moments de complicité et de célébration</li>
-                <li><strong>Événements Familiaux</strong> : Réunions familiales autour de la beauté et du bien-être</li>
-                <li><strong>Célébrations Spéciales</strong> : Toute occasion qui mérite d'être célébrée avec style</li>
+                <li><strong>Beauty Brands</strong> : Lancements de produits, démonstrations exclusives, et activation de marques beauté (cosmétiques, skincare, parfums)</li>
+                <li><strong>Lifestyle & Wellness</strong> : Partenariats avec marques de bien-être, spas, fitness et santé holistique</li>
+                <li><strong>Fashion & Accessoires</strong> : Co-création d'événements mode, défilés intimes, présentations de collections</li>
+                <li><strong>Corporate Partners</strong> : Événements RSE, célébrations d'entreprise, team building féminin et empowerment workshops</li>
+                <li><strong>Hospitality & Venues</strong> : Collaborations hôtelières, activation de lieux premium, expériences gastronomiques</li>
+                <li><strong>Tech & Innovation</strong> : Partenariats avec plateformes digitales, applications lifestyle, et marques innovantes</li>
+                <li><strong>Women's Organizations</strong> : Co-production avec associations féminines, NGOs et réseaux professionnels</li>
+                <li><strong>Media & Influenceurs</strong> : Création de contenus, événements presse, et expériences créateurs de contenu</li>
             </ul>
         </div>
 
-        <!-- Ce qui est inclus -->
+        <!-- Formats de Collaboration -->
         <div class="info-box" style="animation: fadeInUp 1s ease-out 0.5s backwards;">
-            <h3>Création 100% personnalisée</h3>
+            <h3>Formats de Collaboration Sur Mesure</h3>
             <ul>
-                <li><strong>Thématique sur mesure</strong> : Décoration, couleurs et ambiance selon vos envies</li>
-                <li><strong>Menu adapté</strong> : Brunch, cocktail ou repas selon vos préférences</li>
-                <li><strong>Activités personnalisées</strong> : Ateliers beauté, animations, jeux adaptés à votre événement</li>
-                <li><strong>Décoration exclusive</strong> : Création d'un univers unique pour votre célébration</li>
-                <li><strong>Prestations à la carte</strong> : Maquillage, coiffure, manucure, soins selon vos besoins</li>
-                <li><strong>Cadeaux personnalisés</strong> : Goodie bags aux couleurs de votre événement</li>
-                <li><strong>Photographie</strong> : Immortalisez chaque instant de votre célébration</li>
-                <li><strong>Coordination complète</strong> : Nous gérons tous les détails de A à Z</li>
+                <li><strong>Événements Co-Brandés</strong> : Co-création d'expériences premium portant vos deux marques</li>
+                <li><strong>Lancements de Produits</strong> : Présentations exclusives de nouveaux produits à notre communauté engagée</li>
+                <li><strong>Brand Activations</strong> : Démonstrations, échantillonnage et expériences immersives de marque</li>
+                <li><strong>Sponsored Content</strong> : Création de contenu photo/vidéo professionnel pour vos campagnes marketing</li>
+                <li><strong>Exclusive Workshops</strong> : Masterclasses animées par vos experts avec notre audience qualifiée</li>
+                <li><strong>Pop-Up Experiences</strong> : Installations temporaires et expériences éphémères co-créées</li>
+                <li><strong>Influencer Events</strong> : Événements créateurs de contenu avec portée de 225 000+ abonnés</li>
+                <li><strong>Package Goodie Bags</strong> : Intégration de vos produits dans nos goodie bags premium distribués aux participantes</li>
+            </ul>
+        </div>
+
+        <!-- Notre Communauté - Stats Box -->
+        <div class="stats-box" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
+            <h3>Notre Communauté</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1 400+</div>
+                    <div class="stat-label">Abonnés actifs et engagés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">225K+</div>
+                    <div class="stat-label">Portée via nos partenaires</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25-45 ans</div>
+                    <div class="stat-label">Femmes entrepreneures</div>
+                </div>
+            </div>
+            <ul style="margin-top: 2rem; list-style: none; padding: 0;">
+                <li style="margin-bottom: 0.75rem;">✓ <strong>Pouvoir d'achat élevé</strong> : cadres supérieures, business owners, professions libérales</li>
+                <li style="margin-bottom: 0.75rem;">✓ <strong>Libreville et Gabon</strong> : marché premium d'Afrique Centrale</li>
+                <li style="margin-bottom: 0.75rem;">✓ <strong>Taux d'engagement élevé</strong> : communauté authentique et participative</li>
+            </ul>
+        </div>
+
+        <!-- Avantages Partenariat -->
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.7s backwards;">
+            <h3>Avantages Partenariat</h3>
+            <ul>
+                <li>Accès direct à une audience féminine premium et qualifiée</li>
+                <li>Captation professionnelle photo/vidéo pour vos supports marketing</li>
+                <li>Association à une marque lifestyle respectée et établie depuis 4 ans</li>
+                <li>Activation produit dans un cadre élégant et contrôlé</li>
+                <li>Feedback direct de votre cible via interactions en événement</li>
+                <li>Contenu généré authentique par participantes satisfaites</li>
+                <li>ROI mesurable : portée, engagement, conversions trackables</li>
             </ul>
         </div>
 
         <!-- Tarifs -->
         <div class="price-tag" style="animation: fadeInUp 1s ease-out 0.8s backwards;">
             <div class="price">Sur Devis</div>
-            <div class="price-note">Tarifs personnalisés selon vos envies, le nombre d'invités et les prestations choisies</div>
-        </div>
-
-        <!-- Avantages -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.9s backwards;">
-            <h3>Pourquoi choisir Beauty Brunch X</h3>
-            <ul>
-                <li>Événement unique conçu spécialement pour vous et vos invitées</li>
-                <li>Flexibilité totale dans le choix du lieu, de la date et des prestations</li>
-                <li>Équipe dédiée qui concrétise votre vision</li>
-                <li>Expérience clé en main, sans stress pour vous</li>
-                <li>Souvenirs inoubliables pour vous et vos invitées</li>
-                <li>Qualité et professionnalisme garantis</li>
-            </ul>
+            <div class="price-note">Tarifs personnalisés selon vos objectifs, la portée souhaitée et les prestations choisies</div>
         </div>
 
         <!-- CTA -->
         <div class="cta-section">
-            <h2>Créons Ensemble Votre Événement de Rêve</h2>
+            <h2>Créons Ensemble Votre Prochaine Activation de Marque</h2>
             <p>
-                Partagez-nous votre vision et nous la transformerons en une célébration inoubliable.
+                Discutons de vos objectifs marketing et créons une expérience qui résonne avec votre audience.
             </p>
-            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20organiser%20un%20événement%20Beauty%20Brunch%20X" class="cta-button" target="_blank">
-                Demander Un Devis Personnalisé
+            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20discuter%20d'une%20collaboration%20Beauty%20Brunch%20X" class="cta-button" target="_blank">
+                Demander Un Devis Partenariat
             </a>
         </div>
     </section>
