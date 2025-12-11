@@ -21,6 +21,29 @@
             text-align: center;
         }
 
+        /* Page-specific logo with subtitle */
+        .page-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-logo {
+            max-width: 300px;
+            width: 100%;
+            margin-bottom: 0.3rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #0866FF;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
         /* Event badge */
         .event-badge {
             display: inline-block;
@@ -48,6 +71,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(8, 102, 255, 0.15);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .event-image-card:hover {
@@ -62,61 +86,56 @@
             display: block;
         }
 
-        .event-image-overlay {
-            position: absolute;
-            bottom: 0;
+        /* Lightbox for full-screen images */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
             left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(8, 102, 255, 0.9), transparent);
-            padding: 2rem;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
             color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            line-height: 1;
+            transition: transform 0.2s ease;
         }
 
-        .event-image-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .lightbox-close:hover {
+            transform: scale(1.1);
         }
 
-        .event-image-desc {
-            font-size: 1rem;
-            opacity: 0.95;
-        }
+        @media (max-width: 640px) {
+            .page-logo {
+                max-width: 200px;
+            }
 
-        /* Stats highlight box */
-        .stats-box {
-            background: linear-gradient(135deg, #0866FF 0%, #0654d4 100%);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .stats-box h3 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.95;
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -124,11 +143,10 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo-with-subtitle">
+            <div class="nav-logo-container">
                 <a href="index.html">
                     <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="nav-logo-img">
                 </a>
-                <span class="nav-logo-subtitle">X</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Accueil</a></li>
@@ -149,6 +167,12 @@
         </div>
 
         <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
+            <!-- Logo with "X" subtitle centered under "Brunch" -->
+            <div class="page-logo-container">
+                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="page-logo">
+                <span class="page-subtitle">X</span>
+            </div>
+
             <span class="event-badge">🎉 Collaborations de Marque</span>
             <h1 class="hero-title" style="animation: fadeInUp 1s ease-out backwards;">
                 Beauty Brunch X
@@ -157,21 +181,13 @@
                 Votre marque, Notre expertise · Des expériences qui plongent vos clientes dans votre univers
             </p>
 
-            <!-- Event Images -->
+            <!-- Event Images - Clickable to enlarge -->
             <div class="event-images" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
-                <div class="event-image-card">
+                <div class="event-image-card" onclick="openLightbox(event, '439a13af-a0c7-42e0-b805-e8f674253c8c.JPG')">
                     <img src="439a13af-a0c7-42e0-b805-e8f674253c8c.JPG" alt="Beauty Brunch X Event">
-                    <div class="event-image-overlay">
-                        <div class="event-image-title">Brand Activations</div>
-                        <div class="event-image-desc">Des expériences immersives pour votre marque</div>
-                    </div>
                 </div>
-                <div class="event-image-card">
+                <div class="event-image-card" onclick="openLightbox(event, 'd2f7b37e-9487-4154-86b1-1c4a7c0c8e2a.JPG')">
                     <img src="d2f7b37e-9487-4154-86b1-1c4a7c0c8e2a.JPG" alt="Beauty Brunch X Event">
-                    <div class="event-image-overlay">
-                        <div class="event-image-title">Événements Co-Brandés</div>
-                        <div class="event-image-desc">Co-création d'expériences premium</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -189,13 +205,10 @@
         <div class="info-box" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
             <h3>Types de Collaborations de Marque</h3>
             <ul>
-                <li><strong>Beauty Brands</strong> : Lancements de produits, démonstrations exclusives, et activation de marques beauté (cosmétiques, skincare, parfums)</li>
+                <li><strong>Marques de Beauté</strong> : Lancements de produits, démonstrations exclusives, et activation de marques beauté (cosmétiques, skincare, parfums)</li>
                 <li><strong>Lifestyle & Wellness</strong> : Partenariats avec marques de bien-être, spas, fitness et santé holistique</li>
                 <li><strong>Fashion & Accessoires</strong> : Co-création d'événements mode, défilés intimes, présentations de collections</li>
-                <li><strong>Corporate Partners</strong> : Événements RSE, célébrations d'entreprise, team building féminin et empowerment workshops</li>
-                <li><strong>Hospitality & Venues</strong> : Collaborations hôtelières, activation de lieux premium, expériences gastronomiques</li>
-                <li><strong>Tech & Innovation</strong> : Partenariats avec plateformes digitales, applications lifestyle, et marques innovantes</li>
-                <li><strong>Women's Organizations</strong> : Co-production avec associations féminines, NGOs et réseaux professionnels</li>
+                <li><strong>Hôtellerie & Lieux</strong> : Collaborations hôtelières, activation de lieux premium, expériences gastronomiques</li>
                 <li><strong>Media & Influenceurs</strong> : Création de contenus, événements presse, et expériences créateurs de contenu</li>
             </ul>
         </div>
@@ -215,41 +228,20 @@
             </ul>
         </div>
 
-        <!-- Notre Communauté - Stats Box -->
-        <div class="stats-box" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
-            <h3>Notre Communauté</h3>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">1 400+</div>
-                    <div class="stat-label">Abonnés actifs et engagés</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">225K+</div>
-                    <div class="stat-label">Portée via nos partenaires</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">25-45 ans</div>
-                    <div class="stat-label">Femmes entrepreneures</div>
-                </div>
-            </div>
-            <ul style="margin-top: 2rem; list-style: none; padding: 0;">
-                <li style="margin-bottom: 0.75rem;">✓ <strong>Pouvoir d'achat élevé</strong> : cadres supérieures, business owners, professions libérales</li>
-                <li style="margin-bottom: 0.75rem;">✓ <strong>Libreville et Gabon</strong> : marché premium d'Afrique Centrale</li>
-                <li style="margin-bottom: 0.75rem;">✓ <strong>Taux d'engagement élevé</strong> : communauté authentique et participative</li>
-            </ul>
-        </div>
-
-        <!-- Avantages Partenariat -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.7s backwards;">
+        <!-- Avantages Partenariat - WITH STATS INTEGRATED -->
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
             <h3>Avantages Partenariat</h3>
             <ul>
-                <li>Accès direct à une audience féminine premium et qualifiée</li>
+                <li><strong>Communauté engagée de 1 400+ abonnés actifs</strong> : Audience féminine premium et qualifiée</li>
+                <li><strong>Portée amplifiée de 225 000+ via nos partenaires</strong> : Maximisez votre visibilité</li>
+                <li><strong>Cible démographique premium</strong> : Femmes entrepreneures 25-45 ans, cadres supérieures, business owners, professions libérales avec pouvoir d'achat élevé</li>
+                <li><strong>Marché gabonais et Afrique Centrale</strong> : Accès au marché premium de Libreville et du Gabon</li>
                 <li>Captation professionnelle photo/vidéo pour vos supports marketing</li>
                 <li>Association à une marque lifestyle respectée et établie depuis 4 ans</li>
                 <li>Activation produit dans un cadre élégant et contrôlé</li>
                 <li>Feedback direct de votre cible via interactions en événement</li>
                 <li>Contenu généré authentique par participantes satisfaites</li>
-                <li>ROI mesurable : portée, engagement, conversions trackables</li>
+                <li><strong>ROI mesurable</strong> : Portée, engagement, conversions trackables</li>
             </ul>
         </div>
 
@@ -262,9 +254,6 @@
         <!-- CTA -->
         <div class="cta-section">
             <h2>Créons Ensemble Votre Prochaine Activation de Marque</h2>
-            <p>
-                Discutons de vos objectifs marketing et créons une expérience qui résonne avec votre audience.
-            </p>
             <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20discuter%20d'une%20collaboration%20Beauty%20Brunch%20X" class="cta-button" target="_blank">
                 Demander Un Devis Partenariat
             </a>
@@ -282,6 +271,12 @@
         </div>
     </footer>
 
+    <!-- Lightbox for full-screen images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="Full screen image">
+    </div>
+
     <!-- Scripts -->
     <script>
         // Shrinking navigation
@@ -291,6 +286,27 @@
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Lightbox functions
+        function openLightbox(event, imageSrc) {
+            event.stopPropagation();
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
             }
         });
     </script>
