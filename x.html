@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Brunch X - Événements Privés</title>
-    <meta name="description" content="Beauty Brunch X - Événements privés sur mesure pour vos célébrations spéciales.">
+    <title>Beauty Brunch X - Événements Privés Sur Mesure</title>
+    <meta name="description" content="Beauty Brunch X - Créez votre événement beauté personnalisé pour toutes vos célébrations spéciales.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,131 +21,71 @@
             text-align: center;
         }
 
-        /* Top Images Gallery */
-        .top-images-gallery {
+        /* Event badge */
+        .event-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #0866FF 0%, #0654d4 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Event Images Grid */
+        .event-images {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin: 3rem 0 4rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 3rem auto;
+            max-width: 1200px;
         }
 
-        .top-image-item {
+        .event-image-card {
             position: relative;
             border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(8, 102, 255, 0.15);
-            transition: all 0.4s ease;
-            background: #f3f4f6;
+            transition: all 0.3s ease;
         }
 
-        .top-image-item:hover {
+        .event-image-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(8, 102, 255, 0.25);
         }
 
-        .top-image-item img {
+        .event-image-card img {
             width: 100%;
-            height: auto;
+            height: 400px;
+            object-fit: cover;
             display: block;
-            transition: transform 0.4s ease;
         }
 
-        .top-image-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Image overlay with action button */
-        .image-overlay {
+        .event-image-overlay {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(8, 102, 255, 0.9), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-
-        .top-image-item:hover .image-overlay {
-            opacity: 1;
-        }
-
-        .overlay-button {
-            background: white;
-            color: #0866FF;
-            border: none;
-            padding: 0.8rem 1.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .overlay-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Lightbox for full-screen images */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
+            right: 0;
+            background: linear-gradient(to top, rgba(8, 102, 255, 0.9), transparent);
+            padding: 2rem;
             color: white;
-            font-size: 3rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.5rem 1rem;
-            line-height: 1;
         }
 
-        @media (min-width: 768px) {
-            .top-images-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .event-image-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
 
-        @media (max-width: 767px) {
-            .top-images-gallery {
-                grid-template-columns: 1fr;
-            }
+        .event-image-desc {
+            font-size: 1rem;
+            opacity: 0.95;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation with Logo + "X" subtitle -->
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo-with-subtitle">
@@ -159,7 +99,7 @@
                 <li><a href="ateliers.html">Ateliers</a></li>
                 <li><a href="luxe.html">Luxe</a></li>
                 <li><a href="x.html" class="active">Beauty Brunch X</a></li>
-                <li><a href="private.html">BBX Corporate</a></li>
+                <li><a href="private.html">Beauty Brunch Privé</a></li>
             </ul>
         </div>
     </nav>
@@ -173,25 +113,28 @@
         </div>
 
         <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
-            <!-- Top Images Gallery -->
-            <div class="top-images-gallery">
-                <!-- Image 1 -->
-                <div class="top-image-item">
-                    <img src="439a13af-a0c7-42e0-b805-e8f674253c8c.JPG" alt="Beauty Brunch X" loading="lazy">
-                    <div class="image-overlay">
-                        <button class="overlay-button" onclick="openLightbox(event, '439a13af-a0c7-42e0-b805-e8f674253c8c.JPG')">
-                            🔍 Voir en grand
-                        </button>
+            <span class="event-badge">🎉 Événements Sur Mesure</span>
+            <h1 class="hero-title" style="animation: fadeInUp 1s ease-out backwards;">
+                Beauty Brunch X
+            </h1>
+            <p class="hero-subtitle" style="animation: fadeInUp 1s ease-out 0.2s backwards;">
+                Votre célébration, Notre création · Des événements privés entièrement personnalisés
+            </p>
+
+            <!-- Event Images -->
+            <div class="event-images" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
+                <div class="event-image-card">
+                    <img src="439a13af-a0c7-42e0-b805-e8f674253c8c.JPG" alt="Beauty Brunch X Event">
+                    <div class="event-image-overlay">
+                        <div class="event-image-title">Célébrations Privées</div>
+                        <div class="event-image-desc">Des moments uniques créés pour vous</div>
                     </div>
                 </div>
-
-                <!-- Image 2 -->
-                <div class="top-image-item">
-                    <img src="PHOTO-2025-12-08-13-42-27.jpg" alt="Beauty Brunch X" loading="lazy">
-                    <div class="image-overlay">
-                        <button class="overlay-button" onclick="openLightbox(event, 'PHOTO-2025-12-08-13-42-27.jpg')">
-                            🔍 Voir en grand
-                        </button>
+                <div class="event-image-card">
+                    <img src="d2f7b37e-9487-4154-86b1-1c4a7c0c8e2a.JPG" alt="Beauty Brunch X Event">
+                    <div class="event-image-overlay">
+                        <div class="event-image-title">Expériences Sur Mesure</div>
+                        <div class="event-image-desc">Chaque détail pensé pour votre occasion spéciale</div>
                     </div>
                 </div>
             </div>
@@ -201,84 +144,64 @@
     <!-- Content Section -->
     <section class="content-section">
         <div class="section-subtitle" style="animation: fadeInUp 1s ease-out 0.3s backwards;">
-            Beauty Brunch X propose des événements privés sur mesure pour vos célébrations les plus précieuses : 
-            anniversaires, baby showers, enterrements de vie de jeune fille, et toutes vos occasions spéciales.
+            Beauty Brunch X transforme vos célébrations en expériences mémorables. Que ce soit pour un anniversaire, 
+            un baby shower, un EVJF ou toute autre occasion spéciale, nous créons l'événement beauté de vos rêves.
         </div>
 
         <!-- Types d'événements -->
         <div class="info-box" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
-            <h3>🎯 Types d'événements privés</h3>
+            <h3>Types d'événements privés</h3>
             <ul>
                 <li><strong>Anniversaires</strong> : Célébrez votre journée spéciale avec style et élégance</li>
-                <li><strong>Baby Shower</strong> : Accueillez bébé dans une ambiance douce et festive</li>
-                <li><strong>EVJF</strong> : Enterrement de vie de jeune fille mémorable entre copines</li>
-                <li><strong>Bridal Shower</strong> : Préparez la mariée avec une journée beauté exclusive</li>
-                <li><strong>Réunions entre amies</strong> : Retrouvailles, célébrations, moments de complicité</li>
-                <li><strong>Événements familiaux</strong> : Réunions de famille dans un cadre raffiné</li>
+                <li><strong>Baby Showers</strong> : Accueillez bébé dans une atmosphère de douceur et de beauté</li>
+                <li><strong>EVJF (Enterrement de Vie de Jeune Fille)</strong> : La fête parfaite avant le grand jour</li>
+                <li><strong>Fêtes entre Amies</strong> : Moments de complicité et de célébration</li>
+                <li><strong>Événements Familiaux</strong> : Réunions familiales autour de la beauté et du bien-être</li>
+                <li><strong>Célébrations Spéciales</strong> : Toute occasion qui mérite d'être célébrée avec style</li>
             </ul>
         </div>
 
         <!-- Ce qui est inclus -->
         <div class="info-box" style="animation: fadeInUp 1s ease-out 0.5s backwards;">
-            <h3>✨ Ce qui est inclus</h3>
+            <h3>Création 100% personnalisée</h3>
             <ul>
-                <li><strong>Conception sur mesure</strong> : Événement adapté à votre vision et vos envies</li>
-                <li><strong>Restauration premium</strong> : Menu gourmand personnalisé selon vos préférences</li>
-                <li><strong>Décoration thématique</strong> : Ambiance et décor selon votre thème choisi</li>
-                <li><strong>Ateliers beauté</strong> : Maquillage, soins, conseils beauté personnalisés</li>
-                <li><strong>Animation</strong> : Jeux, activités, moments de partage et de rire</li>
-                <li><strong>Goodie bags personnalisés</strong> : Cadeaux surprises pour vos invitées</li>
-                <li><strong>Photobooth & souvenirs</strong> : Espace photo et captures professionnelles</li>
-            </ul>
-        </div>
-
-        <!-- Format -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
-            <h3>📋 Format flexible</h3>
-            <ul>
-                <li><strong>Durée</strong> : De 2 à 6 heures selon vos besoins</li>
-                <li><strong>Nombre d'invitées</strong> : De 10 à 50 personnes</li>
-                <li><strong>Lieux</strong> : À domicile, en villa, ou dans un espace privatisé</li>
-                <li><strong>Thématiques</strong> : Tropical, bohème, glamour, vintage, ou votre idée unique</li>
+                <li><strong>Thématique sur mesure</strong> : Décoration, couleurs et ambiance selon vos envies</li>
+                <li><strong>Menu adapté</strong> : Brunch, cocktail ou repas selon vos préférences</li>
+                <li><strong>Activités personnalisées</strong> : Ateliers beauté, animations, jeux adaptés à votre événement</li>
+                <li><strong>Décoration exclusive</strong> : Création d'un univers unique pour votre célébration</li>
+                <li><strong>Prestations à la carte</strong> : Maquillage, coiffure, manucure, soins selon vos besoins</li>
+                <li><strong>Cadeaux personnalisés</strong> : Goodie bags aux couleurs de votre événement</li>
+                <li><strong>Photographie</strong> : Immortalisez chaque instant de votre célébration</li>
+                <li><strong>Coordination complète</strong> : Nous gérons tous les détails de A à Z</li>
             </ul>
         </div>
 
         <!-- Tarifs -->
-        <div class="price-tag" style="animation: fadeInUp 1s ease-out 0.7s backwards;">
+        <div class="price-tag" style="animation: fadeInUp 1s ease-out 0.8s backwards;">
             <div class="price">Sur Devis</div>
-            <div class="price-note">Tarifs adaptés selon le nombre d'invitées et les prestations</div>
+            <div class="price-note">Tarifs personnalisés selon vos envies, le nombre d'invités et les prestations choisies</div>
         </div>
 
         <!-- Avantages -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.8s backwards;">
-            <h3>💖 Pourquoi choisir Beauty Brunch X</h3>
+        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.9s backwards;">
+            <h3>Pourquoi choisir Beauty Brunch X</h3>
             <ul>
-                <li>Événement 100% personnalisé selon vos envies</li>
-                <li>Gestion complète de A à Z, vous n'avez qu'à profiter</li>
-                <li>Expérience unique et mémorable pour vous et vos invitées</li>
-                <li>Professionnalisme et attention aux moindres détails</li>
-                <li>Souvenirs inoubliables et photos magnifiques</li>
+                <li>Événement unique conçu spécialement pour vous et vos invitées</li>
+                <li>Flexibilité totale dans le choix du lieu, de la date et des prestations</li>
+                <li>Équipe dédiée qui concrétise votre vision</li>
+                <li>Expérience clé en main, sans stress pour vous</li>
+                <li>Souvenirs inoubliables pour vous et vos invitées</li>
+                <li>Qualité et professionnalisme garantis</li>
             </ul>
-        </div>
-
-        <!-- Link to Corporate page -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.9s backwards; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <h3 style="color: white;">🏢 Vous êtes une entreprise, ONG ou institution ?</h3>
-            <p style="margin-bottom: 1.5rem;">
-                Découvrez nos offres spéciales pour team building, séminaires et événements corporate.
-            </p>
-            <a href="private.html" style="display: inline-block; background: white; color: #667eea; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
-                Voir BBX Corporate →
-            </a>
         </div>
 
         <!-- CTA -->
         <div class="cta-section">
             <h2>Créons Ensemble Votre Événement de Rêve</h2>
             <p>
-                Contactez-nous pour discuter de votre projet et recevoir un devis personnalisé.
+                Partagez-nous votre vision et nous la transformerons en une célébration inoubliable.
             </p>
-            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20organiser%20un%20Beauty%20Brunch%20X%20privé" class="cta-button" target="_blank">
+            <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20organiser%20un%20événement%20Beauty%20Brunch%20X" class="cta-button" target="_blank">
                 Demander Un Devis Personnalisé
             </a>
         </div>
@@ -291,15 +214,9 @@
             <a href="index.html">Accueil</a>
             <a href="ateliers.html">Beauty Brunch Ateliers</a>
             <a href="luxe.html">Beauty Brunch Luxe</a>
-            <a href="private.html">BBX Corporate</a>
+            <a href="private.html">Beauty Brunch Privé</a>
         </div>
     </footer>
-
-    <!-- Lightbox for full-screen images -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <img id="lightbox-img" src="" alt="Full screen image">
-    </div>
 
     <!-- Scripts -->
     <script>
@@ -310,27 +227,6 @@
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Lightbox functions
-        function openLightbox(event, imageSrc) {
-            event.stopPropagation();
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imageSrc;
-            lightbox.classList.add('active');
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-        }
-
-        // Close lightbox on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeLightbox();
             }
         });
     </script>
