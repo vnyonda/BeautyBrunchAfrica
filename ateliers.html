@@ -21,10 +21,10 @@
             text-align: center;
         }
 
-        /* Improved Gallery Grid */
+        /* Gallery Grid - Masonry Style */
         .top-gallery {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1rem;
             margin: 3rem auto 4rem;
             max-width: 1400px;
@@ -96,28 +96,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        /* Make specific images span multiple rows/columns for better layout */
-        .top-gallery-item:nth-child(2) { 
-            grid-column: span 2;
-            grid-row: span 1;
-        }
-
-        .top-gallery-item:nth-child(5) { 
-            grid-column: span 2;
-        }
-
-        .top-gallery-item:nth-child(7) { 
-            grid-column: span 2;
-        }
-
-        .top-gallery-item:nth-child(8) { 
-            grid-column: span 2;
-        }
-
-        .top-gallery-item:nth-child(10) { 
-            grid-row: span 2;
-        }
-
         /* Lightbox for full-screen images */
         .lightbox {
             display: none;
@@ -161,36 +139,10 @@
         }
 
         /* Responsive layout */
-        @media (max-width: 1024px) {
-            .top-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .top-gallery-item:nth-child(2),
-            .top-gallery-item:nth-child(5),
-            .top-gallery-item:nth-child(7),
-            .top-gallery-item:nth-child(8) {
-                grid-column: span 2;
-            }
-
-            .top-gallery-item:nth-child(10) {
-                grid-row: span 1;
-            }
-        }
-
         @media (max-width: 640px) {
             .top-gallery {
                 grid-template-columns: 1fr;
                 gap: 0.75rem;
-            }
-            
-            .top-gallery-item:nth-child(2),
-            .top-gallery-item:nth-child(5),
-            .top-gallery-item:nth-child(7),
-            .top-gallery-item:nth-child(8),
-            .top-gallery-item:nth-child(10) {
-                grid-column: span 1;
-                grid-row: span 1;
             }
         }
     </style>
@@ -209,7 +161,8 @@
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="ateliers.html" class="active">Ateliers</a></li>
                 <li><a href="luxe.html">Luxe</a></li>
-                <li><a href="corporate.html">Beauty Brunch X</a></li>
+                <li><a href="x.html">Beauty Brunch X</a></li>
+                <li><a href="private.html">Beauty Brunch Privé</a></li>
             </ul>
         </div>
     </nav>
@@ -239,7 +192,7 @@
                     </div>
                 </div>
 
-                <!-- Image 2 - Horizontal (spans 2 columns) -->
+                <!-- Image 2 -->
                 <div class="top-gallery-item">
                     <img src="DSC09674.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -278,7 +231,7 @@
                     </div>
                 </div>
 
-                <!-- Image 5 - Horizontal (spans 2 columns) -->
+                <!-- Image 5 -->
                 <div class="top-gallery-item">
                     <img src="DSC09465.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -304,7 +257,7 @@
                     </div>
                 </div>
 
-                <!-- Image 7 - Horizontal (spans 2 columns) -->
+                <!-- Image 7 -->
                 <div class="top-gallery-item">
                     <img src="DSC09473.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -317,7 +270,7 @@
                     </div>
                 </div>
 
-                <!-- Image 8 - Horizontal (spans 2 columns) - TikTok -->
+                <!-- Image 8 - TikTok -->
                 <div class="top-gallery-item">
                     <img src="DSC09771.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -343,7 +296,7 @@
                     </div>
                 </div>
 
-                <!-- Image 10 - Poster (spans 2 rows) -->
+                <!-- Image 10 - Poster -->
                 <div class="top-gallery-item">
                     <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
@@ -356,7 +309,7 @@
                     </div>
                 </div>
 
-                <!-- Image 11 - Beauty Brunch 2022 (SWITCHED ORDER) -->
+                <!-- Image 11 - Beauty Brunch 2022 -->
                 <div class="top-gallery-item">
                     <img src="Beauty_Brunch_2022.jpg" alt="Beauty Brunch 2022" loading="lazy">
                     <div class="image-overlay">
@@ -369,7 +322,7 @@
                     </div>
                 </div>
 
-                <!-- Image 12 - Beauty Brunch 2021 (SWITCHED ORDER) -->
+                <!-- Image 12 - Beauty Brunch 2021 -->
                 <div class="top-gallery-item">
                     <img src="Beauty_Brunch_2021.jpg" alt="Beauty Brunch 2021" loading="lazy">
                     <div class="image-overlay">
@@ -394,7 +347,7 @@
 
         <!-- Ce qui est inclus -->
         <div class="info-box" style="animation: fadeInUp 1s ease-out 0.4s backwards;">
-            <h3>✨ Ce qui est inclus</h3>
+            <h3>Ce qui est inclus</h3>
             <ul>
                 <li><strong>Brunch Gourmand</strong> : Buffet varié avec options salées et sucrées, boissons chaudes et fraîches</li>
                 <li><strong>Ateliers Beauté</strong> : Démonstrations maquillage, soins de la peau, conseils beauté personnalisés</li>
@@ -405,41 +358,15 @@
             </ul>
         </div>
 
-        <!-- Format -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.5s backwards;">
-            <h3>📋 Format de l'événement</h3>
-            <ul>
-                <li><strong>Durée</strong> : 3 à 4 heures</li>
-                <li><strong>Nombre de participantes</strong> : 20 à 40 personnes</li>
-                <li><strong>Ambiance</strong> : Conviviale, intimiste et inspirante</li>
-                <li><strong>Public cible</strong> : Femmes actives, entrepreneures, passionnées de beauté et bien-être</li>
-            </ul>
-        </div>
-
         <!-- Tarifs -->
         <div class="price-tag" style="animation: fadeInUp 1s ease-out 0.6s backwards;">
             <div class="price">15 000 - 25 000 FCFA</div>
             <div class="price-note">Par personne · Selon les prestations choisies</div>
         </div>
 
-        <!-- Thématiques -->
-        <div class="info-box" style="animation: fadeInUp 1s ease-out 0.7s backwards;">
-            <h3>🎨 Thématiques populaires</h3>
-            <ul>
-                <li>Glow Up : Sublimer sa beauté naturelle</li>
-                <li>Self-Care Sunday : Prendre soin de soi</li>
-                <li>Boss Lady : Entrepreneuriat au féminin</li>
-                <li>Summer Vibes : Beauté et bien-être estival</li>
-                <li>Girl Power : Célébration de la femme moderne</li>
-            </ul>
-        </div>
-
         <!-- CTA -->
         <div class="cta-section">
             <h2>Renseignez-vous et réservez votre place pour notre prochain Beauty Brunch</h2>
-            <p>
-                Rejoignez-nous et vivez une expérience unique dédiée aux femmes modernes et inspirantes.
-            </p>
             <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20réserver%20pour%20un%20Beauty%20Brunch%20Ateliers" class="cta-button" target="_blank">
                 Réserver Ma Place Via WhatsApp
             </a>
@@ -452,7 +379,8 @@
         <div class="footer-links">
             <a href="index.html">Accueil</a>
             <a href="luxe.html">Beauty Brunch Luxe</a>
-            <a href="corporate.html">Beauty Brunch X</a>
+            <a href="x.html">Beauty Brunch X</a>
+            <a href="private.html">Beauty Brunch Privé</a>
         </div>
     </footer>
 
