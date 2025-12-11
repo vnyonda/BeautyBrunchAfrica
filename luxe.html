@@ -21,6 +21,29 @@
             text-align: center;
         }
 
+        /* Page-specific logo with subtitle */
+        .page-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-logo {
+            max-width: 300px;
+            width: 100%;
+            margin-bottom: 0.3rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #FFD700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
         /* Luxury badge */
         .luxury-badge {
             display: inline-block;
@@ -32,17 +55,26 @@
             margin-bottom: 1rem;
             font-size: 0.9rem;
         }
+
+        @media (max-width: 640px) {
+            .page-logo {
+                max-width: 200px;
+            }
+
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation with Logo + "Luxe" subtitle -->
+    <!-- Navigation with Logo Only -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo-with-subtitle">
+            <div class="nav-logo-container">
                 <a href="index.html">
                     <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="nav-logo-img">
                 </a>
-                <span class="nav-logo-subtitle">Luxe</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Accueil</a></li>
@@ -63,6 +95,12 @@
         </div>
 
         <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
+            <!-- Logo with "Luxe" subtitle centered under "Brunch" -->
+            <div class="page-logo-container">
+                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="page-logo">
+                <span class="page-subtitle">Luxe</span>
+            </div>
+
             <span class="luxury-badge">💎 Premium Experience</span>
             <h1 class="hero-title" style="animation: fadeInUp 1s ease-out backwards;">
                 Beauty Brunch Luxe
@@ -85,11 +123,9 @@
             <h3>L'expérience Luxe</h3>
             <ul>
                 <li><strong>Menu Gastronomique</strong> : Chef privé, mets raffinés, champagne et cocktails signature</li>
-                <li><strong>Prestations Premium</strong> : Soins spa, maquillage professionnel, coiffure, manucure</li>
-                <li><strong>Lieux d'Exception</strong> : Villas privées, rooftops, espaces haut de gamme</li>
+                <li><strong>Lieux d'Exception</strong> : Hôtels haut de gamme, villas privées, espaces prestigieux</li>
                 <li><strong>Service Personnalisé</strong> : Majordome, accueil VIP, attention individualisée</li>
-                <li><strong>Marques de Luxe</strong> : Produits haut de gamme, partenariats exclusifs</li>
-                <li><strong>Décoration Sur-Mesure</strong> : Fleuriste, décorateur, ambiance raffinée</li>
+                <li><strong>Décoration Élégante</strong> : Fleuriste, décorateur, ambiance raffinée</li>
                 <li><strong>Entertainment</strong> : DJ, musiciens live, animations premium</li>
                 <li><strong>Goodie Bag Luxe</strong> : Produits de marques prestigieuses</li>
             </ul>
@@ -104,11 +140,8 @@
         <!-- CTA -->
         <div class="cta-section">
             <h2>Vivez l'Excellence Beauty Brunch Luxe</h2>
-            <p>
-                Offrez-vous une expérience beauté d'exception. Places limitées pour garantir l'exclusivité.
-            </p>
             <a href="https://wa.me/24177530726?text=Bonjour%2C%20je%20souhaite%20réserver%20pour%20Beauty%20Brunch%20Luxe" class="cta-button" target="_blank">
-                Réserver Mon Expérience Luxe
+                Me Renseigner sur l'Expérience Luxe
             </a>
         </div>
     </section>
