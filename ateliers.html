@@ -21,26 +21,29 @@
             text-align: center;
         }
 
-        /* Gallery at top - Masonry style */
+        /* Improved Gallery Grid */
         .top-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0 4rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 3rem auto 4rem;
+            max-width: 1400px;
+            padding: 0 1rem;
         }
 
         .top-gallery-item {
             position: relative;
-            border-radius: 1rem;
+            border-radius: 0.5rem;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(255, 29, 141, 0.15);
-            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px rgba(255, 29, 141, 0.1);
+            transition: all 0.3s ease;
             background: #f3f4f6;
+            cursor: pointer;
         }
 
         .top-gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 29, 141, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(255, 29, 141, 0.2);
         }
 
         .top-gallery-item img {
@@ -48,7 +51,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
         }
 
         .top-gallery-item:hover img {
@@ -59,14 +62,14 @@
         .image-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(255, 29, 141, 0.9), transparent);
+            background: linear-gradient(to top, rgba(255, 29, 141, 0.85), transparent 60%);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            gap: 1rem;
-            padding: 1.5rem;
+            gap: 0.75rem;
+            padding: 1.25rem;
         }
 
         .top-gallery-item:hover .image-overlay {
@@ -77,25 +80,42 @@
             background: white;
             color: var(--bb-pink);
             border: none;
-            padding: 0.8rem 1.2rem;
+            padding: 0.6rem 1rem;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
+            gap: 0.4rem;
+            font-size: 0.85rem;
         }
 
         .overlay-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        /* Horizontal images span 2 columns */
-        .top-gallery-item.horizontal {
+        /* Make specific images span multiple rows/columns for better layout */
+        .top-gallery-item:nth-child(2) { 
             grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .top-gallery-item:nth-child(5) { 
+            grid-column: span 2;
+        }
+
+        .top-gallery-item:nth-child(7) { 
+            grid-column: span 2;
+        }
+
+        .top-gallery-item:nth-child(8) { 
+            grid-column: span 2;
+        }
+
+        .top-gallery-item:nth-child(10) { 
+            grid-row: span 2;
         }
 
         /* Lightbox for full-screen images */
@@ -133,15 +153,44 @@
             border: none;
             padding: 0.5rem 1rem;
             line-height: 1;
+            transition: transform 0.2s ease;
         }
 
-        @media (max-width: 768px) {
+        .lightbox-close:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive layout */
+        @media (max-width: 1024px) {
             .top-gallery {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .top-gallery-item.horizontal {
+            .top-gallery-item:nth-child(2),
+            .top-gallery-item:nth-child(5),
+            .top-gallery-item:nth-child(7),
+            .top-gallery-item:nth-child(8) {
+                grid-column: span 2;
+            }
+
+            .top-gallery-item:nth-child(10) {
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .top-gallery {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .top-gallery-item:nth-child(2),
+            .top-gallery-item:nth-child(5),
+            .top-gallery-item:nth-child(7),
+            .top-gallery-item:nth-child(8),
+            .top-gallery-item:nth-child(10) {
                 grid-column: span 1;
+                grid-row: span 1;
             }
         }
     </style>
@@ -173,162 +222,162 @@
             <div class="blob blob3"></div>
         </div>
 
-        <div class="page-hero" style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;">
+        <div class="page-hero" style="position: relative; z-index: 10;">
             
-            <!-- Gallery of Images (with dual functionality) -->
+            <!-- Gallery of Images -->
             <div class="top-gallery">
-                <!-- Image 1 - Vertical -->
+                <!-- Image 1 -->
                 <div class="top-gallery-item">
                     <img src="OP9461.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'OP9461.JPG')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 2 - Horizontal -->
-                <div class="top-gallery-item horizontal">
+                <!-- Image 2 - Horizontal (spans 2 columns) -->
+                <div class="top-gallery-item">
                     <img src="DSC09674.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'DSC09674.JPG')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 3 - Vertical -->
+                <!-- Image 3 -->
                 <div class="top-gallery-item">
                     <img src="OP9485.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'OP9485.JPG')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 4 - Vertical -->
+                <!-- Image 4 -->
                 <div class="top-gallery-item">
                     <img src="OP9453.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'OP9453.JPG')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 5 - Horizontal -->
-                <div class="top-gallery-item horizontal">
+                <!-- Image 5 - Horizontal (spans 2 columns) -->
+                <div class="top-gallery-item">
                     <img src="DSC09465.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'DSC09465.JPG')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 6 - Vertical -->
+                <!-- Image 6 -->
                 <div class="top-gallery-item">
                     <img src="OP9456.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'OP9456.JPG')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 7 - Horizontal -->
-                <div class="top-gallery-item horizontal">
+                <!-- Image 7 - Horizontal (spans 2 columns) -->
+                <div class="top-gallery-item">
                     <img src="DSC09473.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'DSC09473.JPG')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 8 - Horizontal - Special TikTok link -->
-                <div class="top-gallery-item horizontal">
+                <!-- Image 8 - Horizontal (spans 2 columns) - TikTok -->
+                <div class="top-gallery-item">
                     <img src="DSC09771.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://vm.tiktok.com/ZNRJ7L2bS/', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'DSC09771.JPG')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 9 - Vertical -->
+                <!-- Image 9 -->
                 <div class="top-gallery-item">
                     <img src="OP9430.JPG" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'OP9430.JPG')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 10 - Vertical - Facebook link -->
+                <!-- Image 10 - Poster (spans 2 rows) -->
                 <div class="top-gallery-item">
                     <img src="BB_Affiche_Final___.jpeg" alt="Beauty Brunch Ateliers" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.facebook.com/profile.php?id=1000756380911953', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'BB_Affiche_Final___.jpeg')">
-                            🔍 Agrandir
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
 
-                <!-- Image 11 - NEW - Beauty Brunch 2021 -->
-                <div class="top-gallery-item">
-                    <img src="Beauty_Brunch_2021.jpg" alt="Beauty Brunch 2021" loading="lazy">
-                    <div class="image-overlay">
-                        <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
-                        </button>
-                        <button class="overlay-button" onclick="openLightbox(event, 'Beauty_Brunch_2021.jpg')">
-                            🔍 Agrandir
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Image 12 - NEW - Beauty Brunch 2022 -->
+                <!-- Image 11 - Beauty Brunch 2022 (SWITCHED ORDER) -->
                 <div class="top-gallery-item">
                     <img src="Beauty_Brunch_2022.jpg" alt="Beauty Brunch 2022" loading="lazy">
                     <div class="image-overlay">
                         <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
-                            🔗 Voir le post
+                            🔗 Post
                         </button>
                         <button class="overlay-button" onclick="openLightbox(event, 'Beauty_Brunch_2022.jpg')">
-                            🔍 Agrandir
+                            🔍 Zoom
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image 12 - Beauty Brunch 2021 (SWITCHED ORDER) -->
+                <div class="top-gallery-item">
+                    <img src="Beauty_Brunch_2021.jpg" alt="Beauty Brunch 2021" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="overlay-button" onclick="window.open('https://www.instagram.com/reel/DRb4S-9DDbE/?igsh=MXJxN2p2eTR5MWR1cw==', '_blank')">
+                            🔗 Post
+                        </button>
+                        <button class="overlay-button" onclick="openLightbox(event, 'Beauty_Brunch_2021.jpg')">
+                            🔍 Zoom
                         </button>
                     </div>
                 </div>
@@ -427,7 +476,7 @@
 
         // Lightbox functions
         function openLightbox(event, imageSrc) {
-            event.stopPropagation(); // Prevent any parent clicks
+            event.stopPropagation();
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = imageSrc;
