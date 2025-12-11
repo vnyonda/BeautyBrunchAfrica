@@ -18,12 +18,12 @@
         .hero-logo {
             max-width: 400px;
             width: 100%;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             animation: fadeInUp 1s ease-out;
         }
 
         .hero-tagline {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 300;
             color: #374151;
             letter-spacing: 0.05em;
@@ -152,17 +152,61 @@
             transform: translateX(5px);
         }
 
+        /* Partners Section */
+        .partners-section {
+            margin: 4rem 0;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            border-radius: 2rem;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+            margin-top: 2rem;
+        }
+
+        .partner-logo {
+            max-width: 150px;
+            max-height: 80px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
             .hero-logo {
                 max-width: 250px;
             }
 
             .hero-tagline {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
 
             .concepts-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .partner-logo {
+                max-width: 120px;
+                max-height: 60px;
             }
         }
     </style>
@@ -202,40 +246,10 @@
 
             <div class="intro-text">
                 <p>
-                    Beauty Brunch Africa est bien plus qu'un événement, c'est une célébration de la femme 
-                    moderne dans toute sa splendeur. Nous créons des expériences uniques où la beauté, 
-                    le bien-être et l'entrepreneuriat féminin se rencontrent dans une atmosphère raffinée 
+                    Beauty Brunch Africa est bien plus qu'une série d'événements. C'est une célébration de la femme 
+                    moderne dans toute sa splendeur à travers des expériences uniques où la beauté, 
+                    le bien-être et l'épanouissement féminin se rencontrent dans une atmosphère raffinée 
                     et inspirante.
-                </p>
-            </div>
-
-            <!-- TikTok Video Section -->
-            <div style="margin: 4rem 0; padding: 3rem 1rem; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 2rem;">
-                <h2 class="section-title" style="margin-bottom: 1rem;">
-                    ✨ Revivez Notre Dernier Beauty Brunch
-                </h2>
-                <p style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
-                    Découvrez l'ambiance magique de notre événement du 22 novembre 2025
-                </p>
-                
-                <div style="display: flex; justify-content: center;">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beautybrunch.africa/video/7576243979797220619" data-video-id="7576243979797220619" style="max-width: 605px;min-width: 325px;" > 
-                        <section> 
-                            <a target="_blank" title="@beautybrunch.africa" href="https://www.tiktok.com/@beautybrunch.africa?refer=embed">@beautybrunch.africa</a> 
-                            ✨ Beauty Brunch – 22 Novembre 2025 ✨ Un moment suspendu dans le temps… Entre rires, confidences, beauté et sororité. Merci à toutes ces femmes lumineuses qui ont transformé cette journée en un véritable cocon d'élégance, de partage et de self-love 🌸 Chaque sourire, chaque échange, chaque éclat dans vos yeux… c'est ça, la magie du Beauty Brunch. À toutes les participantes : merci d'avoir apporté votre énergie, votre grâce et votre beauté intérieure🩷 Un grand merci à tous nos partenaires @Tendhyma_Evenementiel , @yvesrochergabon , @Gozem Gabon , @KELRHA Bar Lounge et @SMAD TV😍 sans qui cet événement n'aurait pas été ce qu'il a été ✨ Merci également à @Chancya | Modèle Photo📸 | pour sa présence et sa participation pendant l'événement 🧡 Rendez-vous au prochain chapitre qui sera tout autant inoubliable. 💛✨ 
-                            <a title="beautybrunchafrica" target="_blank" href="https://www.tiktok.com/tag/beautybrunchafrica?refer=embed">#beautybrunchafrica</a> 
-                            <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> 
-                            <a title="pourtoii" target="_blank" href="https://www.tiktok.com/tag/pourtoii?refer=embed">#pourtoii</a> 
-                            <a title="gabon🇬🇦" target="_blank" href="https://www.tiktok.com/tag/gabon%F0%9F%87%AC%F0%9F%87%A6?refer=embed">#gabon🇬🇦</a> 
-                            <a target="_blank" title="♬ son original - Beauty Brunch Africa" href="https://www.tiktok.com/music/son-original-7576243949199805195?refer=embed">♬ son original - Beauty Brunch Africa</a> 
-                        </section> 
-                    </blockquote>
-                </div>
-                
-                <p style="margin-top: 1.5rem;">
-                    <a href="https://www.tiktok.com/@beautybrunch.africa" target="_blank" style="color: var(--bb-pink); font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
-                        Suivez-nous sur TikTok pour plus de moments magiques →
-                    </a>
                 </p>
             </div>
 
@@ -275,8 +289,7 @@
                     <div class="concept-content">
                         <h3 class="concept-title">Beauty Brunch X</h3>
                         <p class="concept-description">
-                            Événements privés sur mesure pour toutes vos célébrations : anniversaires, 
-                            baby showers, EVJF, et toutes occasions spéciales.
+                            Solutions événementielles pour mettre votre marque en valeur via des expériences qui plongent vos clientes dans votre univers.
                         </p>
                         <span class="concept-cta">Découvrir →</span>
                     </div>
@@ -288,12 +301,58 @@
                     <div class="concept-content">
                         <h3 class="concept-title">Beauty Brunch Privé</h3>
                         <p class="concept-description">
-                            Solutions événementielles pour entreprises, ONG et institutions. Team building, 
-                            séminaires et célébrations corporate dans un cadre unique.
+                            Événements privés sur mesure pour entreprises, ONG et institutions. Team building, 
+                            séminaires et célébrations corporate pour vos collaboratrices dans un cadre unique.
                         </p>
                         <span class="concept-cta">Découvrir →</span>
                     </div>
                 </a>
+            </div>
+
+            <!-- Nos Partenaires Section -->
+            <div class="partners-section">
+                <h2 class="section-title">Nos Partenaires</h2>
+                <div class="partners-grid">
+                    <img src="nomad logo 2-Picsart-BackgroundRemover.jpg" alt="Nomad" class="partner-logo">
+                    <img src="smad tv logo-Picsart-BackgroundRemover.jpg" alt="SMAD TV" class="partner-logo">
+                    <img src="Logo Yves Rocher Vectoriel - 2.png" alt="Yves Rocher" class="partner-logo">
+                    <img src="Logo Yves Rocher Vectoriel - 4.png" alt="Yves Rocher" class="partner-logo">
+                    <img src="gozem.png" alt="Gozem" class="partner-logo">
+                    <img src="kelrha-Picsart-BackgroundRemover.jpg" alt="Kelrha" class="partner-logo">
+                    <img src="Tendhyma logo.jpg" alt="Tendhyma" class="partner-logo">
+                    <img src="ivuandi.png" alt="Ivuandi" class="partner-logo">
+                    <img src="nynd log.png" alt="NYND" class="partner-logo">
+                </div>
+            </div>
+
+            <!-- TikTok Video Section -->
+            <div style="margin: 4rem 0; padding: 3rem 1rem; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 2rem;">
+                <h2 class="section-title" style="margin-bottom: 1rem;">
+                    Revivez Notre Dernier Beauty Brunch
+                </h2>
+                <p style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
+                    Découvrez l'ambiance magique de notre événement du 22 novembre 2025
+                </p>
+                
+                <div style="display: flex; justify-content: center;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beautybrunch.africa/video/7576243979797220619" data-video-id="7576243979797220619" style="max-width: 605px;min-width: 325px;" > 
+                        <section> 
+                            <a target="_blank" title="@beautybrunch.africa" href="https://www.tiktok.com/@beautybrunch.africa?refer=embed">@beautybrunch.africa</a> 
+                            ✨ Beauty Brunch – 22 Novembre 2025 ✨ Un moment suspendu dans le temps… Entre rires, confidences, beauté et sororité. Merci à toutes ces femmes lumineuses qui ont transformé cette journée en un véritable cocon d'élégance, de partage et de self-love 🌸 Chaque sourire, chaque échange, chaque éclat dans vos yeux… c'est ça, la magie du Beauty Brunch. À toutes les participantes : merci d'avoir apporté votre énergie, votre grâce et votre beauté intérieure🩷 Un grand merci à tous nos partenaires @Tendhyma_Evenementiel , @yvesrochergabon , @Gozem Gabon , @KELRHA Bar Lounge et @SMAD TV😍 sans qui cet événement n'aurait pas été ce qu'il a été ✨ Merci également à @Chancya | Modèle Photo📸 | pour sa présence et sa participation pendant l'événement 🧡 Rendez-vous au prochain chapitre qui sera tout autant inoubliable. 💛✨ 
+                            <a title="beautybrunchafrica" target="_blank" href="https://www.tiktok.com/tag/beautybrunchafrica?refer=embed">#beautybrunchafrica</a> 
+                            <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> 
+                            <a title="pourtoii" target="_blank" href="https://www.tiktok.com/tag/pourtoii?refer=embed">#pourtoii</a> 
+                            <a title="gabon🇬🇦" target="_blank" href="https://www.tiktok.com/tag/gabon%F0%9F%87%AC%F0%9F%87%A6?refer=embed">#gabon🇬🇦</a> 
+                            <a target="_blank" title="♬ son original - Beauty Brunch Africa" href="https://www.tiktok.com/music/son-original-7576243949199805195?refer=embed">♬ son original - Beauty Brunch Africa</a> 
+                        </section> 
+                    </blockquote>
+                </div>
+                
+                <p style="margin-top: 1.5rem;">
+                    <a href="https://www.tiktok.com/@beautybrunch.africa" target="_blank" style="color: var(--bb-pink); font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                        Suivez-nous sur TikTok pour plus de moments magiques →
+                    </a>
+                </p>
             </div>
         </div>
     </section>
