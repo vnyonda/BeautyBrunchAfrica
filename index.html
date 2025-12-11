@@ -15,11 +15,19 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
+        /* Hero Logo (Large, only on homepage) */
+        .hero-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
         .hero-logo {
-            max-width: 400px;
+            max-width: 450px;
             width: 100%;
             margin-bottom: 0.5rem;
-            animation: fadeInUp 1s ease-out;
         }
 
         .hero-tagline {
@@ -28,7 +36,6 @@
             color: #374151;
             letter-spacing: 0.05em;
             text-align: center;
-            margin-bottom: 3rem;
             animation: fadeInUp 1s ease-out 0.3s backwards;
         }
 
@@ -152,7 +159,7 @@
             transform: translateX(5px);
         }
 
-        /* Partners Section - UPDATED */
+        /* Partners Section */
         .partners-section {
             margin: 4rem 0;
             padding: 3rem 2rem;
@@ -184,7 +191,7 @@
 
         @media (max-width: 768px) {
             .hero-logo {
-                max-width: 250px;
+                max-width: 280px;
             }
 
             .hero-tagline {
@@ -215,7 +222,6 @@
                 <a href="index.html">
                     <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="nav-logo-img">
                 </a>
-                <p class="nav-tagline">Créateurs d'Expériences Autour de la Femme</p>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="active">Accueil</a></li>
@@ -236,9 +242,11 @@
         </div>
 
         <div style="position: relative; z-index: 10; text-align: center; max-width: 1000px;">
-            <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="hero-logo">
-            
-            <p class="hero-tagline">Créateurs d'Expériences Autour de la Femme</p>
+            <!-- Large Logo with Tagline Centered Under "Brunch" -->
+            <div class="hero-logo-container">
+                <img src="BB_Logo.png" alt="Beauty Brunch Logo" class="hero-logo">
+                <p class="hero-tagline">Créateurs d'Expériences Autour de la Femme</p>
+            </div>
 
             <div class="intro-text">
                 <p>
@@ -304,7 +312,7 @@
                 </a>
             </div>
 
-            <!-- Nos Partenaires Section - LOGOS NOW IN COLOR AND LARGER -->
+            <!-- Nos Partenaires Section -->
             <div class="partners-section">
                 <h2 class="section-title">Nos Partenaires</h2>
                 <div class="partners-grid">
