@@ -166,52 +166,39 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
             border-radius: 2rem;
         }
+/* Make partner logos extra large and well spaced */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3.5rem;
+    align-items: center;
+    justify-items: center;
+    margin-top: 2rem;
+}
 
-              .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            align-items: center;
-            justify-items: center;
-            margin-top: 2rem;
-        }
+.partner-logo {
+    max-width: 320px;
+    max-height: 180px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
 
-        .partner-logo {
-            max-width: 220px;
-            max-height: 120px;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            transition: all 0.3s ease;
-        }
+.partner-logo:hover {
+    transform: scale(1.08);
+}
 
-        .partner-logo:hover {
-            transform: scale(1.08);
-        }
-
-        @media (max-width: 768px) {
-            .hero-logo {
-                max-width: 280px;
-            }
-
-            .hero-tagline {
-                font-size: 1.1rem;
-            }
-
-            .concepts-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
-            .partner-logo {
-                max-width: 160px;
-                max-height: 90px;
-            }
-        }
+@media (max-width: 900px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    .partner-logo {
+        max-width: 200px;
+        max-height: 110px;
+    }
+}
     </style>
 </head>
 <body>
