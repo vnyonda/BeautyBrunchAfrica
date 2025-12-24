@@ -588,3 +588,189 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+<style>
+/* Hero Logo (Large, only on homepage) */
+.hero-logo-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 3rem;
+animation: fadeInUp 1s ease-out;
+}
+ .hero-logo {
+        max-width: 450px;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.4rem;
+        font-weight: 300;
+        color: #374151;
+        letter-spacing: 0.05em;
+        text-align: center;
+        animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+
+    .intro-text {
+        max-width: 800px;
+        margin: 0 auto 4rem;
+        text-align: center;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #666;
+        animation: fadeInUp 1s ease-out 0.5s backwards;
+    }
+
+    .concepts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin: 4rem 0;
+    }
+
+    .concept-card {
+        background: white;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(255, 29, 141, 0.15);
+        transition: all 0.4s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .concept-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(255, 29, 141, 0.25);
+    }
+
+    .concept-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        object-position: top center;
+    }
+
+    .concept-content {
+        padding: 2rem;
+    }
+
+    .concept-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+    }
+
+    /* Color coding for concepts */
+    .concept-ateliers .concept-title {
+        color: var(--bb-pink);
+    }
+
+    .concept-luxe .concept-title {
+        color: #FFD700;
+    }
+
+    .concept-x .concept-title {
+        color: #0866FF;
+    }
+
+    .concept-prive .concept-title {
+        color: #764ba2;
+    }
+
+    .concept-description {
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .concept-cta {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s;
+        color: white;
+    }
+
+    .concept-ateliers .concept-cta {
+        background: var(--bb-pink);
+    }
+
+    .concept-ateliers .concept-cta:hover {
+        background: #e01679;
+        transform: translateX(5px);
+    }
+
+    .concept-luxe .concept-cta {
+        background: linear-gradient(135deg, #FFD700, #FFA500);
+    }
+
+    .concept-luxe .concept-cta:hover {
+        background: linear-gradient(135deg, #FFA500, #FF8C00);
+        transform: translateX(5px);
+    }
+
+    .concept-x .concept-cta {
+        background: #0866FF;
+    }
+
+    .concept-x .concept-cta:hover {
+        background: #0654d4;
+        transform: translateX(5px);
+    }
+
+    .concept-prive .concept-cta {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .concept-prive .concept-cta:hover {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        transform: translateX(5px);
+    }
+
+    /* Partners Section */
+    .partners-section {
+        margin: 4rem 0;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+        border-radius: 2rem;
+    }
+/* Make partner logos extra large and well spaced */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3.5rem;
+    align-items: center;
+    justify-items: center;
+    margin-top: 2rem;
+}
+
+.partner-logo {
+    max-width: 320px;
+    max-height: 180px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    transform: scale(1.08);
+}
+
+@media (max-width: 900px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    .partner-logo {
+        max-width: 200px;
+        max-height: 110px;
+    }
+}
+    </style>
